@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\begin{document}
+	
+% Local Field (from Wikipedia)
+\begin{definition}
+A \textbf{local field} is a field that is locally compact with respect to a non-discrete topology.
+Every local field is isomorphic (as a topological field) to one of the following:
+\begin{itemize}
+	\item Archimedian local fields (characteristic zero): the real numbers $R$, and the complex numbers $C$.
+	\item Non-archimedian local fields of characteristic zero: finite extensions of the $p$-adic numbers $Q_p$ (where $p$ is any prime number).
+	\item Non-archimedian local fields of characteristic $p$: the field of formal Laurent series $\mathbf{F}_q((T))$ over a finite field $\mathbf{F}_q$
+	(where $q$ is a power of $p$).
+\end{itemize}
+There is an equivalent definition of a non-archimedean field: it is a field that is complete with respect to a discrete valuation	 and whose residue field is finite.
+However, some authors consider a more general notion, requiring only that the residue field be perfect, not necessarily finite.
+\end{definition}
+
+% Discrete valuation (from other algebra book - get bio info from Dr. O'Halloran)
+\begin{definition}
+Let $K$ be a field. A \textbf{discrete valuation} on $K$ is a function $\nu: K^\times \to \mathbf{Z}$ satisfying
+\begin{enumerate}
+\item $\nu(ab) = \nu(a) + \nu(b)$ (i.e., $\nu$ is a homomorphism from the multiplicative group of nonzero elements of $K$ to $\mathbf{Z}$).
+\item $\nu$ is surjective, and
+\item $\nu(x+y) \ge \min \{\nu(x), \nu(y)\}$ for all $x, y \in K^\times$ with $x + y \ne 0$.
+\end{enumerate}
+\end{definition}
+
+% Ring on integers (from Wikipedia)
+\begin{definition}
+The \textbf{ring of integers} of an algebraic number field $K$ is the ring of all integral elements contained in $K$.
+\end{definition}
+
+% Locally compact (from Wikipedia)
+\begin{definition}
+A topological space $X$ is \textbf{locally compact} if every point of $X$ has a compact neighborhood.
+\end{definition}
+
+% Maximal Ideal (from Hungerford)
+\begin{definition}
+Let $M$ be an ideal in a ring $R$. $M$ is said to be \textbf{maximal} if $M \ne R$ and for every ideal $N$ such that $M \subset N \subset R$,
+either $N = M$ or $N = R$.
+\end{definition}
+
+% Symplectic matrix (from Wikipedia)
+\begin{definition}
+A \textbf{symplectic} matrix is a $2n$ by $2n$ matrix $M$ with entries in a field $F$ that satisfies the condition
+\[
+M^{T} \Omega M = \Omega
+\]
+where $\Omega$ is a nonsingular, skew-symmetric matrix.
+\end{definition}
+
+
+% First, let's figure out the Jacobsen Radical
+\section*{Jacobsen Radical and Background Definitions}
+
+% Local rings (from Wikipedia)
+\begin{definition}
+A ring $R$ is local if it has any one of the following equivalent properties:
+\begin{itemize}
+\item $R$ has a unique maximal left ideal.
+\item $R$ has a unique maximal right ideal.
+\item $1 \ne 0$ and the sum of any two non-units in $R$ is a non-unit.
+\item $1 \ne 0$ and if $x$ is any element in $R$, then $x$ or $1 - x$ is a unit.
+\item If a finite sum is a unit, then so are some of its terms.
+\end{itemize}
+\end{definition}
+
+% Simple rings and modules
+\begin{definition}
+A module $A$ over a ring $R$ is \textbf{simple} (or \textbf{irreducible}) provided $RA \ne 0$ and $A$ has no proper submodules.
+A ring $R$ is \textbf{simple} if $R^2 \ne 0$ and $R$ has no proper (two-sided) ideals.
+\end{definition}
+
+% Faithful modules and primitive rings (from Hungerford)
+\begin{definition}
+A module $A$ is \textbf{faithful} if its annihilator $\mathcal{A}(A)$ is 0.
+A ring $R$ is \textbf{primitive} if there exists a simple faithful left R-module.
+\end{definition}
+
+% Primitive ideals (from Hungerford)
+\begin{definition}
+And ideal $P$ of a ring $R$ is said to be \textbf{left (right) primitive} if the quotient ringt $R/P$ is a left (right) primitive ring.
+\end{definition}
+
+% Quasi-regular (from Hungerford)
+\begin{definition}
+An element $a$ in a ring $R$ is said to be \textbf{left quasi-regular} if there exists $r \in R$ such that $r + a + ra = 0$.
+The element $r$ is called a \textbf{left quasi-inverse} of $a$.
+A (right, left, or two-sided) ideal $I$ of $R$ is said to be \textbf{left quasi-regular} if every element of $I$ is left quasi-regular.
+Similarly, $a \in R$ is said to be \textbf{right quasi-regular} if there exists $r \in R$ such that $a + r + ar = 0$.
+Right quasi-inverses and right quasi-regular ideals are defined analogously.
+\end{definition}
+
+\end{document}

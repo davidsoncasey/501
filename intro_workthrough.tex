@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{natbib}
+\newcommand{\padic}{$p$-adic }
+\begin{document}
+\section{Introduction Workthrough with \padic Numbers}
+$K$ is a non-archimedian local field. In this case $K$ will be the \padic numbers $\mathbb{Q}_p$, where $p > 1$ is prime.
+Let 	$\mathcal{O}$ be the ring of integers (integral elements) of $K$. These are elements of the form
+\[
+a = \sum_{i > 0}a_i p^i.
+\]
+with each $0 \le a_i \le p - 1$ for all $i$. See \cite{katok}, page 28 for more explanation of this representation.
+It is important to note that because of the metric imposed on the field of \padic numbers, adding terms with higher powers of $p$ does not increase the magnitude of the integer.
+Thus for every \padic integer $a$, $|a| \le 1$.
+As in the rational numbers (can be shown with rational root theorem) these are the integers.
+To see that $(p)$ is the maximal ideal, note that for any $a \in \mathbb{O}$, if $|a| = 1$, then $a$ is invertible.
+Thus the only non-invertible elements of $\mathbb{O}$ have $p$ as a divisor, and $(p)$ is the unique maximal ideal of $\mathbb{O}$.
+
+Now let $F_q = \mathbb{O}/(p)$. Then this is a field of characteristic $p$.
+Let $F = K[\sqrt{p}]$ be a ramified quadratic extension of $K$ with ring of integers $R$.
+From wikipedia \cite{wikipedia:quadratic-integer}: Define
+\[
+\omega = \begin{cases}
+\sqrt{p} &\text{ if } p \equiv 2,3 \pmod{4}\\
+\frac{1 + \sqrt{p}}{2} &\text{ if } p \equiv 1 \pmod{4}
+\end{cases}
+\]
+Then $R = \{a + b \omega \} = \mathbb{O}[\sqrt{p}]$.
+
+\bibliographystyle{plain}
+\bibliography{501}
+\end{document}
