@@ -32,7 +32,7 @@ Some more assumptions:
 Now let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$ throughout the section.
 
 % Lemma 2.1
-\begin{lemma}
+\begin{lemma}\label{lemma2.1}
 There is a vector $u \in V$ such that $h(u,u) \in R^*$.
 \end{lemma}
 \begin{proof}
@@ -55,7 +55,7 @@ Any such basis satisfies $h(u_i, u_i) \in R^*$.
 \begin{proof}
 Prove with induction on $m$.
 Assume that $m = 1$.
-By the previous lemma, there exists $u \in V$ such that $h(u,u) \in R^*$.
+By \cref{lemma2.1}, there exists $u \in V$ such that $h(u,u) \in R^*$.
 Then $u = v_1a_1$ for some $a_1 \in A^*$, and $h(u,u) = h(v_1a_1, v_1a_1) = a_1^*h(v_1,v_1)a_1 \in R*$ implying that $h(v_1, v_1) \in R^*$.
 Now assume that $m > 1$ and that the hypothesis holds for $m - 1$.
 Once again, there exists $u \in V$ such that $h(u,u) \in R^*$.
@@ -73,17 +73,18 @@ Then $V = V_1 \perp V_2$ and the restriction of $h$ to $V_2$ induces an isomorph
 Applying the inductive hypothesis to this space completes the proof.
 \end{proof}
 
-\begin{lemma}
-\begin{itemize}
+% Lemma 2.3
+\begin{lemma}\label{lemma2.3}
+\begin{description}
 % Come back to this to clean up the latex
 \item{(a)} Suppose $u_1, \dotsc, u_s \in V$ are orthogonal and satisfy $h(u_i, u_i) \in R^*$.
 Then $u_1, \dotsc , u_s \in V$ can be extended to an orthogonal basis of $V$ with the same property.
 \item{(b)} If $V_1$ is a submodule of $V$ such that the restriction of $h$ to $V_1$ is non-degenerate there is another such submodule $V_2$ of $V$ such that $V = V_1 \perp V_2$.
-\end{itemize}
+\end{description}
 \end{lemma}
 \begin{proof}
 (a) Can represent $u_1 = v_1 a_1 + \dotsb + v_m a_m$ for some $a_i \in A$.
-Since $h(u_1, u_1) \in R^*$ (by previous lemma), one of the scalars must be a unit. WLOG assume $a_i \in A*$.
+Since $h(u_1, u_1) \in R^*$ (by \cref{lemma2.1}), one of the scalars must be a unit. WLOG assume $a_i \in A*$.
 Thus $u_1, v_2, \dotsc, v_m$ is a basis of $V$.
 Suppose $1 \le t \le s$ and the list $u_1, \dotsc, u_t, u_{t+1}, \dotsc, v_m$ is a basis of $V$.
 Then 
@@ -110,7 +111,9 @@ If follows that the restriction of $h$ to $M = \text{span} \{z_1, \dotsc, z_{m-s
 (b) Follows from (a) and \cref{lemma2.2}
 \end{proof}
 
-\begin{lemma}Let $u_1, \dotsc u_s \in V$, with corresponding Gram matrix $M \in M_s(A)$, defined by $M_{ij} = h(u_i, u_j)$.
+% Lemma 2.4
+\begin{lemma}\label{lemma2.4}
+Let $u_1, \dotsc u_s \in V$, with corresponding Gram matrix $M \in M_s(A)$, defined by $M_{ij} = h(u_i, u_j)$.
 If $M \in GL_m(A)$, then $u_1, \dotsc, u_s$ are linearly independent.
 \end{lemma}
 \begin{proof}

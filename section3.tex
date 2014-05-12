@@ -4,6 +4,7 @@ A vector $v \in V$ is said to be \textbf{primitive} if $v \not\in V \frakr$.
 This is equivalent to saying that $v$ belongs to a basis of $V$.
 We say that $h$ is \textbf{isotropic} if there is a primitive vector $v \in V$ such that $h(v,v) = 0$.
 
+% Lemma 3.1
 \begin{lemma}\label{lemma3.1}
 Suppose $h$ is isotropic. Then, given any $r \in R$ there is a primitive vector $v$ satisfying $h(v,v) = r$.
 \end{lemma}
@@ -31,6 +32,7 @@ A similar argument shows that $[R^* : {R^*}^2] = 2$.
 We can now fix an element $\varepsilon \in R^* \backslash {R^*}^2$.
 Since ${R^*}^2 \subseteq Q(A^*)$, we infer $Q(A^*) = R^*$ if $Q$ is surjective and $Q(A^*) = {R^*}^2$ otherwise.
 
+% Proposition 3.2
 \begin{proposition}
 The division ring $\Amodr$ is commutative. Moreover,
 \begin{description}
@@ -102,7 +104,7 @@ It follows that the norm map $(\Amodr)^* \to (\Rmodm)^*$ induced by $\star$ is s
 % May want to add little Note 3.3 here
 
 % Proposition 3.4
-\begin{proposition}
+\begin{proposition}\label{prop3.4}
 Suppose $m \ge 2$.
 Then given any unit $r \in R$ there is a primitive vector $v \in V$ satisfying $h(v,v) = r$.
 \end{proposition}
@@ -113,7 +115,7 @@ Cosider two cases:
 \item $h$ is isotropic. Then \ref{lemma3.1} applies.
 \item $h$ is non-isotropic.
 \end{itemize}
-By lemma 2.2, %Probably want a ref here 
+By \cref{lemma2.2}, %Probably want a ref here 
 there is an orthogonal basis $u_1, u_2, \dotsc u_m$ of $V$ such that $h(u_i, u_i) \in R^\star$.
 Let $a = h(u_1, u_2) \in R^\star$ and $b = h(u_2, u_2) \in \Rstar$.
 if $t_1, t_2 \in \Rstar$, then $v = u_1 t_1 + u_2 t_2$ is primitive (because it is part of a basis),
@@ -169,8 +171,8 @@ h(v,v) = at_1^2 + bt_2^2 = r.
 This completes the proof.
 \end{proof}
 
-
-\begin{theorem}
+% Theorem 3.5
+\begin{theorem}\label{theorem3.5}
 There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
 \begin{align*}
   h(v_1, v_1) &= \dotsb = h(v_{m-1}, v_{m-1}) = 1 \text{ and } \\
@@ -181,7 +183,7 @@ There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
 
 \begin{proof}
 To prove this, we'll use induction on $m$.
-Assume that $m = 1$. By lemma 2.2, $V$ has a basis $\{u_1\}$ such that $h(u_1, u_1) \in \Rstar$.
+Assume that $m = 1$. By \cref{lemma2.2}, $V$ has a basis $\{u_1\}$ such that $h(u_1, u_1) \in \Rstar$.
 If $Q(\Astar) = \Rstar$, then $h(u_1, u_1) = a a^*$ for some $a \in \Astar$.
 Let $v = u_1 a^{-1}$.
 Then
@@ -211,7 +213,7 @@ given by $\overline{h}(v + V \mathfrak{i}, w + V \mathfrak{i}) = h(v, w)$ is a n
 Recall that when $A$ is commutative the discriminant of $h$ is the element of $\Rstar / Q(\Astar)$ obtained by taking the determinanat of the Gram matrix of $h$ relative to any basis of $V$.
 
 % Corollary 3.6
-\begin{corollary}
+\begin{corollary}\label{cor3.6}
 Let $h_1$ and $h_2$ be non-degenerate hermitian forms on $V$.
 Then the following conditions are equivalent:
 \begin{itemize}
@@ -248,18 +250,18 @@ and by assumption,
 \]
 This result shows that $k > 1$.
 Now let $V_1 = \text{span}\{v_i: i \le m - k\}$ and $V_2 = \text{span}\{v_i: i > m - k\}$.
-Because $k \ge 2$, by prop 3.4 there exists an orthogonal basis $\{w_1, \dotsc, w_k \}$ with $h(w_1, w_1) = s_{m - k + 1}$.
+Because $k \ge 2$, by \cref{prop3.4} there exists an orthogonal basis $\{w_1, \dotsc, w_k \}$ with $h(w_1, w_1) = s_{m - k + 1}$.
 But then $V' = \{v_1, v_2, \dotsc, v_{m-k}, w_1, \dotsc, w_k \}$ is a basis for $V$ with $k_{V'} < k$, contradicting the assumption that $k$ was minimized.
 Thus $d_i = 1 \pmod{Q(\Astar)}$ for all $i$, and for some basis $V$, $h$ is of type $\{s_1, s_2, \dotsc, s_m\}$.
 \end{proof}
 
-\begin{statement}
+\begin{lemma}\label{extralemma1}
 When $m$ is even then $h$ is of type $\{1, -1, \dotsc, 1, -1 \}$ (define this as kind I) or $\{1, -1,\dotsc, 1, -\varep \}$ (kind II).
 When $m$ is odd then $h$ is of type $\{1, -1, \dotsc, 1, -1, -1 \}$ (kind I) or of type $\{1, -1, \dotsc, 1, -1, -\varep \}$ (kind II).
-\end{statement}
+\end{lemma}
 
 \begin{proof}
-By theorem 3.5, we know that $h$ is of type $\{1, 1, \dotsc, 1\}$ or $\{1, 1, \dotsc, \varep \}$.
+By \cref{theorem3.5}, we know that $h$ is of type $\{1, 1, \dotsc, 1\}$ or $\{1, 1, \dotsc, \varep \}$.
 If $-1 \in Q(\Astar)$, then the result is immediate.
 Assume that $Q$ is not surjective and that $-1 \not\in Q(\Astar)$.
 Let $r = 1$ if $h$ is of type $\{1, 1, \dotsc, 1\}$ and $r = \varep$ if $h$ is of type $\{1, 1, \dotsc, \varep\}$.
@@ -279,7 +281,7 @@ Additionally, it is clear from these prior results that $h$ is of kind I and kin
 % Work on this statement
 Even when $Q$ is not surjective, if $m$ is odd there is only one unitary group of rank $m$, regardless of $h$, since $h$ and $\varep h$ are non-equivalent and have the same unitary group.
 
-\begin{lemma}
+\begin{lemma}\label{lemma3.7}
 Let $\Lambda$ be the set of all values $h(u,u)$ with $u \in V$ primitive.
 Assume that the involution $*$ induces on $A/\frakr$ is the identity.
 \begin{description}
@@ -319,7 +321,7 @@ Because $h$ is of type $\{-1, \varep \}$ as well as $\{1, -\varep\}$ there are p
 Thus $\Lambda = \Rstar$.
 
 (c) Assume that $u_1, u_2, \dotsc u_m$ is an orthogonal basis of $V$ with $h(u_i, u_i) \in \Rstar$.
-Then $-h(u_3, u_3) \in \Rstar$ an by proposition 3.4, there exists a primitive vector $v \in u_1 A \oplus u_2 A$ with $h(v,v) = -h(v_3, v_3)$.
+Then $-h(u_3, u_3) \in \Rstar$ an by \cref{prop3.4}, there exists a primitive vector $v \in u_1 A \oplus u_2 A$ with $h(v,v) = -h(v_3, v_3)$.
 Then $u = v + u_3$ is primitive with $h(u,u) = 0$, and applying lemma 3.1 shows that $\Lambda = R$.
 \end{proof}
 
