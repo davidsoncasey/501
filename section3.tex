@@ -228,19 +228,22 @@ Need to fill this in
 \end{proof}
 
 Given $r_1, \dotsc, r_m \in \Rstar$ we say that $h$ is of type $\{r_1, \dotsc, r_m \}$ if there is a basis $B$ of $V$ relative to which $h$ has matrix $\text{diag} \{r_1, \dotsc, r_m \}$.
-In that case, $h$ is also of type $\{s_1, \dotsc, s_m \}$ for $s_1 \in \Rstar$, if and only if $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
+
+\begin{lemma}\label{extralemma1}
+$h$ is of type $\{r_1, \dotsc, r_m \}$ and $\{s_1, \dotsc, s_m \}$ if and only if \newline $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
+\end{lemma}
 
 \begin{proof}
 Assume that $h$ is of type $\{r_1, \dotsc, r_m\}$ and of type $\{s_1, \dotsc s_m \}$. Because the determinant is invariant under the choice of basis, $r_1 \dotsb r_m = s_1 \dotsb s_m$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} = 1 \in Q(A*)$.
 
-Now assume that $h$ is of type $\{r_1, \dotsc, r_m \}$ with respect to basis $B$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
+Now assume that $h$ is of type $\{r_1, \dotsc, r_m \}$ with respect to basis $R$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
 It's clear that if $m = 1$ that this implies that $h$ is of type $\{s_1 \}$.
 Consider the case that $m > 1$ and assume also that $h$ is not of type $\{s_1, s_2, \dotsc, s_m \}$.
-Then for every orthogonal basis $B$ of $V$, let $k_B$ denote the number of $v_i \in V$ such that $h(v_i, v_i) \ne s_i$, and let $k = \min \{k_B : B \text{ is a basis of } V \}$.
+Then for every orthogonal basis $B$ of $V$ where $h(v_i, v_i) \in \Rstar$ for $v_i \in B$, let $k_B$ denote the number of $v_i \in V$ such that $h(v_i, v_i) \ne s_i$, and let $k = \min \{k_B : B \text{ is a basis of } V \}$.
 Because $h$ is not of type $\{s_1, \dotsc, s_m \}$, $k > 0$.
 Similarly, by proposition 3.4, $k <= m - 1$.
 Without loss of generality, assume that $h(v_i, v_i) = s_i$ when $i <= m - k$ and $h(v_i, v_i) = d_i s_i$ where $d_i \ne 1 \pmod{Q(\Astar)}$ when $i > m - k$.
-Because $h$ is of type $\{h(v_i,v_i) \}$, and $\det(h)$ is invariant under choice of basis,
+Because $h$ is of type $\{h(v_i,v_i): 1 \le i \le m \}$, and $\det(h)$ is invariant under choice of basis,
 \[
 \prod_{i=1}^m r_i = \prod_{i=1}^m h(v_i, v_i) = \left(\prod_{i=1}^{m - k} s_i \right) \left( \prod_{i=m - k}^m d_i s_i \right)
 \]
@@ -255,7 +258,7 @@ But then $V' = \{v_1, v_2, \dotsc, v_{m-k}, w_1, \dotsc, w_k \}$ is a basis for 
 Thus $d_i = 1 \pmod{Q(\Astar)}$ for all $i$, and for some basis $V$, $h$ is of type $\{s_1, s_2, \dotsc, s_m\}$.
 \end{proof}
 
-\begin{lemma}\label{extralemma1}
+\begin{lemma}\label{extralemma2}
 When $m$ is even then $h$ is of type $\{1, -1, \dotsc, 1, -1 \}$ (define this as kind I) or $\{1, -1,\dotsc, 1, -\varep \}$ (kind II).
 When $m$ is odd then $h$ is of type $\{1, -1, \dotsc, 1, -1, -1 \}$ (kind I) or of type $\{1, -1, \dotsc, 1, -1, -\varep \}$ (kind II).
 \end{lemma}
