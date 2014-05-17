@@ -223,8 +223,38 @@ Then the following conditions are equivalent:
 \end{itemize}
 \end{corollary}
 \begin{proof}
-% Need to come back and do this
-Need to fill this in
+(a) implies (b): Assume that $h_1$ and $h_2$ are equivalent.
+Then there exists some isomorphism $A: V \to V$ sych that $h_1(v,w) = h_2(Av, Aw)$ for all $v, w \in V$.
+Then
+\[
+\overline{h_1}(v + V \frakr, w + V \frakr) = h_1(v, w) = h_2(Av, Aw) = \overline{h_2}(Av + V \frakr, Aw + V \frakr)
+\]
+and $\overline{h_1}$ is equivalent to $\overline{h_2}$.
+
+(b) implies (c): Assume that $v_1 + V \frakr, \dotsc, v_m + V \frakr$ is the basis for $\overline{V}$ given in \cref{theorem3.5} and that $\overline{h_1}(v + V\frakr, w + V \frakr) = \overline{h_2}(Av + V \frakr, Aw + V \frakr)$ for some invertible $A$.
+Then $A v_1 + V \frakr, \dotsc, A v_m + V \frakr$ is a basis; and is orthogonal with respect to $\overline{h_2}$.
+Let $d$ represent the discriminant function.
+Using the fact that the determinant is invariant under choice of basis:
+\begin{align*}
+d(\overline{h_1}) &= \prod_{i=1}^m \overline{h}_1(v_i + V \frakr, v_i + V \frakr)\\
+&= \prod_{i=1}^m \overline{h_2}(Av_i + V \frakr, Av_i + V \frakr)\\ &
+= d(\overline{h2})
+\end{align*}
+
+(c) implies (a): Assume that the discriminants of $\overline{h_1}$ and $\overline{h_2}$ are the same.
+Let $v_1, \dotsc, v_m$ and $w_1, \dotsc, w_m$ be orthoginal bases satisfying \cref{theorem3.5} for $h_1$ and $h_2$ respectively.
+Then $h_1(v_i, v_i) = h_2(w_i, w_i)$ for all $i$ (because the discriminants are equal, it is ensured that $h_1(v_m,v_m) = h_2(w_m, w_m)$.
+Let $A: V \to V$ be defined by $v_i \mapsto w_i$.
+Then for $x, y \in V$:
+\begin{align*}
+h_1(x, y) &= \sum_{i=1}^m h_1(v_i x_i, v_i y_i) \\
+&= \sum_{i=1}^m x_i^* y_i h_i(v_i, v_i) \\
+&= \sum_{i=1}^m x_i^*y_i h_2(Av_i, Av_i)\\
+&= \sum_{i=1}^m h_2(Av_i x_i, A v_i y_i)\\
+&= h_2(Ax, Ay)
+\end{align*}
+and $h_1$ and $h_2$ are equivalent.
+
 \end{proof}
 
 Given $r_1, \dotsc, r_m \in \Rstar$ we say that $h$ is of type $\{r_1, \dotsc, r_m \}$ if there is a basis $B$ of $V$ relative to which $h$ has matrix $\text{diag} \{r_1, \dotsc, r_m \}$.
