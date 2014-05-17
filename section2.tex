@@ -1,48 +1,52 @@
 \section{Background in Hermitian Geometry}
-
-In this section, we'll define several items:
+In this section, we'll define and introduce introduce several objects that will be used throughout the paper.
+Some definitions:
 \begin{itemize}
-\item Let $A$ be a local ring with identity.
-\item Let $\mathfrak{r}$ be the Jacobsen radical of $A$. Because $A$ is local, $\mathfrak{r}$ is maximal, and contains all non-units of $A$.
-\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$.
-Note that $R$ is local, with maximal ideal $R \cap \mathfrak{r}$. This is because any element of $R$ that is not in $R \cap \mathfrak{r}$ is invertible by definition.
-Thus the only maximal ideal is $R \cap \mathfrak{r}$.
-\item Let $Q: A^* \to R^*: a \mapsto aa^*$ (the norm map) be a group homomorphism with kernel $N$.
+\item A ring is said to be \textbf{local} if it has a unique maximal left ideal or unique maximal right ideal.
+\item The \textbf{Jacobson radical} of a ring $R$, denoted $J(R)$ is the intersection of all maximal left (right) ideals. In a local ring, $J(R)$ coincides with the unique maximal left ideal and unique maximal right ideal, showing that the maximal ideal is two sided.
 \end{itemize}
 
-Now let $V$ be a right $A$-module and $h: V \times V \to A$ be a *-hermitian form.
-By definition, $h$ is linear in the second variable and $h(v, u) = h(u, v)*$ for $u, v \in V$.
-Then $h(u,u) = h(u,u)*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
+Throughout the paper, the following objects will be fixed.
+\begin{itemize}
+\item Let $A$ be a local ring with identity.
+\item Let $\mathfrak{r}$ be the Jacobson radical of $A$. Because $A$ is local, $\mathfrak{r}$ is maximal, two-sided, and contains all non-units of $A$.
+\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$.
+Note that $R$ is local as well, with maximal ideal $R \cap \mathfrak{r}$. This is because any element of $R$ that is not in $R \cap \mathfrak{r}$ is invertible by definition, and cannot be contained in any ideal.
+\item Let $Q: A^* \to R^*: a \mapsto aa^*$ denote the norm-map.
+\end{itemize}
 
-Now consider the dual space $V^*$. We can define an operation $V^* \times A \to V^*$ by $(\alpha a)(v) = a^* \alpha(v)$ where $\alpha \in V^*, a \in A, v \in V$.
+Let $V$ be a right $A$-module and $h: V \times V \to A$ be a Hermitian form.
+By definition, $h$ is linear in the second variable and $h(v, u) = h(u, v)^*$ for $u, v \in V$.
+Then $h(u,u) = h(u,u)^*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
+
+Now consider the dual space $V^*$. Define an operation $V^* \times A \to V^*$ by $(\alpha a)(v) = a^* \alpha(v)$ where $\alpha \in V^*, a \in A, v \in V$.
 Under this operation, $V^*$ is a right $A$-module.
 Now we can define a homomorphism of right $A$-modules $\gamma_h: V \to V^*$ associated with $h$ given by $\gamma_h(u) = h(u, -)$.
 
 % Should I show detailed calculation here?
 
-Some more assumptions:
+Additionally, for the remainder of the paper:
 
 \begin{itemize}
 \item Assume that $h$ is non-degenerate; $\gamma_h$ is an isomorphism.
 \item Let $U$ be the subgroup of $GL(V)$ preserving $h$. I'm guessing that this means for $\varphi \in U, u,v \in V$, $h(\varphi(u), \varphi(v)) = h(u,v)$.
 \item Assume the existence of an element $d \in A$ such that $d + d^* = 1$.
-\item Assume that $V$ is a free $A$-module of rank $m \ge 1$. According to paper: "This is well defined, as can be seen by reducing modulo $\mathfrak{r}$.
+\item Assume that $V$ is a free $A$-module of rank $m \ge 1$.
 \end{itemize}
-
-Now let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$ throughout the section.
+For the remainder of this section, let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$.
 
 % Lemma 2.1
 \begin{lemma}\label{lemma2.1}
 There is a vector $u \in V$ such that $h(u,u) \in R^*$.
 \end{lemma}
 \begin{proof}
-Assume otherwise; that for some $h(u,u) \in \mathfrak{m}$ for all $u \in V$.
+Assume otherwise; that  $h(u,u) \in \mathfrak{m}$ for all $u \in V$.
 Then using the linearity of $h$:
 \[
 h(u,v) + h(u,v)^* = h(u+v, u+v) - h(u,u) - h(v,v) \in \mathfrak{m}
 \]
 for all $u,v \in V$.
-Let $\alpha \in V*$ be the linear functional such that $\alpha(v_1) = d$ and $\alpha(v_i) = 0$ for all $i > 1$.
+Let $\alpha \in V^*$ be the linear functional such that $\alpha(v_1) = d$ and $\alpha(v_i) = 0$ for all $i > 1$.
 Because $h$ is assumed to be non-degenerate, there exists $u \in V$ such that $h(u,-) = \alpha$.
 Then $d = \alpha(v_1) = h(u,v_1)$ and $1 = d + d^* = h(u,v_1) + h(u,v_1)^* \not\in \mathfrak{m}$, contradicting the original hypothesis.
 \end{proof}
@@ -83,10 +87,10 @@ Then $u_1, \dotsc , u_s \in V$ can be extended to an orthogonal basis of $V$ wit
 \end{description}
 \end{lemma}
 \begin{proof}
-(a) Can represent $u_1 = v_1 a_1 + \dotsb + v_m a_m$ for some $a_i \in A$.
-Since $h(u_1, u_1) \in R^*$ (by \cref{lemma2.1}), one of the scalars must be a unit. WLOG assume $a_i \in A*$.
+(a) Because $\{v_1, \dotsc, v_m \}$ is a basis of $v$, $u_1 = v_1 a_1 + \dotsb + v_m a_m$ for some $a_i \in A$.
+Since $h(u_1, u_1) \in R^*$ (by \cref{lemma2.1}), one of the scalars must be a unit. Without loss of generality, assume $a_1 \in A*$.
 Thus $u_1, v_2, \dotsc, v_m$ is a basis of $V$.
-Suppose $1 \le t \le s$ and the list $u_1, \dotsc, u_t, u_{t+1}, \dotsc, v_m$ is a basis of $V$.
+Suppose $1 \le t \le s$ and the list $u_1, \dotsc, u_t, v_{t+1}, \dotsc, v_m$ is a basis of $V$.
 Then 
 \[
 u_{t+1} = u_1b_1 + \dotsb + u_t b_t + v_{t+1} b_{t+1} + \dotsb + v_m b_m
@@ -97,7 +101,7 @@ Then for every $i \le t$,
 \[
 0 = h(u_i, u_{t+1}) = h(u_i, u_i) b_i + h(u_i, v_{t+1})b_{t+1} + \dotsb + h(u_i, v_m) b_m
 \]
-implying that $b_i \in \mathfrak{r}$ for all $1 \le i \le t$, contradicting the assumptino that $h(u_{t+1}, u_{t+1}) \in R^*$.
+implying that $b_i \in \mathfrak{r}$ for all $1 \le i \le t$, contradicting the assumption that $h(u_{t+1}, u_{t+1}) \in R^*$.
 Thus at least one of $b_{t+1}, \dotsc,b_m$ is a unit (assume $b_{t+1}$ and $u_1, \dotsc u_t, u_{t+1}, v_{t+2}, \dotsc, v_m$ is a basis of $V$.
 
 This process can be repeated to extend $u_1, \dotsc, u_s$ to a basis $u_1, \dotsc, u_s, u_{s+1}, \dotsc u_m$ of $V$.
