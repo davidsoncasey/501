@@ -16,7 +16,7 @@ Set $s = r - h(w,w) \in R$ and $v = us + w$.
 Then
 \begin{align*}
 h(v,v) &= h(us + w, us + w) \\
-&= sh(u,w) + sh(u,w) + sh(w,u) + h(w,w) \\
+&= sh(u,w) + sh(w,u) + h(w,w) \\
 &= s(d + d^*) + h(w,w) \\
 &= s + h(w,w)\\
 &= r - h(w,w) + h(w,w)\\
@@ -29,7 +29,7 @@ is a field of finite order $q$ and odd characteristic.
 Thus $[F_q^* : {F_q^*}^2] = 2$. To see this, pick $r \in F_q^* \backslash {F_q^*}^2$.
 Then the minimal polynomial of $x$ is $t^2 - r^2 \in {F_q^*}^2[t]$.
 A similar argument shows that $[R^* : {R^*}^2] = 2$.
-We can now fix an element $\varepsilon \in R^* \backslash {R^*}^2$.
+For the remainder of the paper, fix an element $\varepsilon \in R^* \backslash {R^*}^2$.
 Since ${R^*}^2 \subseteq Q(A^*)$, we infer $Q(A^*) = R^*$ if $Q$ is surjective and $Q(A^*) = {R^*}^2$ otherwise.
 
 % Proposition 3.2
@@ -37,14 +37,14 @@ Since ${R^*}^2 \subseteq Q(A^*)$, we infer $Q(A^*) = R^*$ if $Q$ is surjective a
 The division ring $\Amodr$ is commutative. Moreover,
 \begin{description}
 \item[(a)] If the involution that $*$ induces on $\Amodr$ is the identity then $Q$ is not surjective and $\Amodr \cong F_q$.
-\item[(b)] If the involution that $*$ induces on $\Amodr$ is not the identity then $Q$ is surjective and $\Amodr \cong F_{q^q}$.
+\item[(b)] If the involution that $*$ induces on $\Amodr$ is not the identity then $Q$ is surjective and $\Amodr \cong F_{q^2}$.
 \end{description}
 \end{proposition}
 \begin{proof}
 We begin embedding $\Rmodm$ in $\Amodr$ using the mapping $x + \frakm \mapsto x + \frakr$ for $x \in R$.
 Thus $\Rmodm$ can be viewed as a subfield of $\Amodr$.
-Now let $\circ$ be the involution that $*$ induces on $\Amodr (a + \frakr \mapsto a^* + \frakr)$
-and let $k = \{a \in \Amodr : a^\circ = a \}$ be the set of all elements of $\Amodr$ that are fixed by $\circ$.
+Now let $\circ$ be the involution that $*$ induces on $\Amodr$ by $a + \frakr \mapsto a^* + \frakr$.
+Let $k = \{a \in \Amodr : a^\circ = a \}$ be the set of all elements of $\Amodr$ that are fixed by $\circ$.
 Then $\Rmodm \subseteq k$ (by definition, $R$ is fixed under $*$).
 Conversely, assume that $a + \frakr \in k$.
 Then $a - a^* \in \frakr$, so
@@ -52,12 +52,15 @@ Then $a - a^* \in \frakr$, so
 a = \frac{a + a^*}{2} + \frac{a - a*}{2} \in R + \frakr
 \]
 and $k \subseteq (R + \frakr)/\frakr = \Rmodm$. Thus $k = R/m$.
-\begin{description}
-\item[(a)] In this case, $\Amodr = k = \Rmodm$ and the norm map $(\Amodr)^* \to (\Rmodm)^*$ (induced by $Q$) is the squaring map of $F_q^*$.
+Consider two cases:
+
+(a) The involution that $*$ induces on $\Amodr$ is the identity: In this case, $\Amodr = k = \Rmodm$ and the norm map $(\Amodr)^* \to (\Rmodm)^*$ (induced by $Q$) is the squaring map of $F_q^*$.
 This map is not surjective, so the norm map $Q$ is not surjective.
-\item[(b)] In this case, we assume that $\Amodr$ properly contains $k$.
+Because $R$ is commutative and $\frakm$ is a maximal ideal, $\Rmodm$ is a field, implying that $\Amodr$ is commutative.
+This completes the proof of this case.
+(b) The involution that $*$ induces on $\Amodr$ is not the identity: In this case, we assume that $\Amodr$ properly contains $k$.
 Then for any $f \in \Amodr \backslash k$, the minimal polynomial of $f$ is $(t - f)(t - f^\circ) = t^2 - (f + f^\circ)t + f f^\circ \in k[t]$.
-\end{description}
+
 Let $f, e \in \Amodr$.
 The goal is to show that $f$ and $e$ commute.
 Let $f_1 = f - (f + f^\circ) / 2$ and $e_1 = e - (e + e^\circ) / 2$.
@@ -74,7 +77,8 @@ Thus by Wedderburn's theorem, $k \langle f_1, e_1$ is a field, implying that $f$
 Thus $\Amodr$ is a field, algebraic over $k = \Rmodm$, where every element of $\Amodr \backslash k$ has degree 2 over $k$.
 Since every algebraic extension of $k$ is separable, the primitive element theorem implies that $[\Amodr : k] = 2$.
 
-We now want to show that the norm map $\hat{Q}: (\Amodr)^* \to k^*$ induced by $*$ is surjective.
+Let $\hat{Q}: (\Amodr)^* \to k^*$ be the norm map induced by $Q$.
+We now want to show that $\hat{Q}$ is surjective.
 Because $k \subseteq \Amodr$, if $r \in k^2$, then there exists $s \in k$ with $s$ fixed under $*$ and $s^2 = r$.
 Thus $\hat{Q}(s) = s^2 = r$.
 Now pick $x \in k \backslash k^2$.
@@ -87,7 +91,7 @@ Every element of $\Amodr$ can be written in the form $a + b \sqrt{-x}$ with $a, 
 \[
 \hat{Q}(a + b \sqrt{-x}) = a^2 - b^2 \cdot -x = a^2 + b^2x.
 \]
-Then taking $s = \sqrt{-x}$ gives $\hat{Q}{(s)} = x$ and $x \in \hat{Q}\left(\Amodr\right))$.
+Then taking $s = \sqrt{-x}$ gives $\hat{Q}{(s)} = x$ and $x \in \hat{Q}\left(\Amodr\right)$.
 \item[Case 2:] Assume that $-x \in k^2$.
 Because exactly half of the elements in $k^*$ have square roots, there must exist some element $z \in k^*$ where $\sqrt{z} \in k^*$ and $\sqrt{z+1} \not\in k^*$.
 Then $F_{q^2} = k(\sqrt{z+1})$.
@@ -98,7 +102,7 @@ Then
 \]
 and $\hat{Q}$ is surjective.
 \end{description}
-It follows that the norm map $(\Amodr)^* \to (\Rmodm)^*$ induced by $\star$ is surjective, implying that the norm map $A^* \to R^*$ is as well since the squaring map of $1 + \frakm$ is surjective.
+Using the fact that the squaring map of $1 + \frakm$ is surjective, this can be used to show that $Q: \Astar \to \Rstar$ is surjective.
 \end{proof}
 
 % May want to add little Note 3.3 here
@@ -111,13 +115,13 @@ Then given any unit $r \in R$ there is a primitive vector $v \in V$ satisfying $
 
 \begin{proof}
 Cosider two cases:
-\begin{itemize}
-\item $h$ is isotropic. Then \ref{lemma3.1} applies.
-\item $h$ is non-isotropic.
-\end{itemize}
+\begin{description}
+\item[Case 1:] $h$ is isotropic. Then \ref{lemma3.1} applies.
+\item[Case 2:] $h$ is non-isotropic.
+\end{description}
 By \cref{lemma2.2}, %Probably want a ref here 
-there is an orthogonal basis $u_1, u_2, \dotsc u_m$ of $V$ such that $h(u_i, u_i) \in R^\star$.
-Let $a = h(u_1, u_2) \in R^\star$ and $b = h(u_2, u_2) \in \Rstar$.
+there is an orthogonal basis $u_1, u_2, \dotsc u_m$ of $V$ such that $h(u_i, u_i) \in \Rstar$.
+Let $a = h(u_1, u_2) \in \Rstar$ and $b = h(u_2, u_2) \in \Rstar$.
 if $t_1, t_2 \in \Rstar$, then $v = u_1 t_1 + u_2 t_2$ is primitive (because it is part of a basis),
 so
 \[
@@ -129,28 +133,33 @@ Dividing by $a$ and letting $c = b/a \in \Rstar$,
 \]
 implying that $-c$ is not a square in $\Rstar$.
 Let $S = R[t] / (t^2 + c)$ and $\delta = t + (t^2 + c) \in S$.
-Then $S = R[\delta], \delta^2 = -c$ and every element of $S$ can be uniquely written in teh form $t_1 + t_2 \delta$ with $t_1, t_2 \in R$.
+Then $S = R[\delta], \delta^2 = -c$ and every element of $S$ can be uniquely written in the form $t_1 + t_2 \delta$ with $t_1, t_2 \in R$.
 We have an involution $s \mapsto \hat{s}$ defined by $t_1 + t_2 \delta \mapsto t_1 - t_2 \delta$,
 whose corresponding norm map $J: S^* \to \Rstar$ given by $s \mapsto s \hat{s}$, or $t_1 + t_2 \delta \mapsto t_1^2 + c t_2^2$.
 
 We claim that $S$ is local with maximal ideal $S\frakm$.
+To show this, we want to show that any non-invertible element of $S$ is contained in $S\frakm$.
 Let $t_1, t_2 \in R$, not both in $\frakm$, and consider $J(t_1 + t_2 \delta) = t_1^2 + c t_2^2$.
-If one of $t_1, t_2$ is in $m$, then $t_1^2 + c t_2^2 \in \Rstar$.
-To see this, assume that either $t_1$ or $t_2 \not\in \frakm$.
+This breaks into two cases:
+\begin{description}
+\item[Case 1:] One of $t_1, t_2 \in \frakm$.
 Then if $t_1^2 + ct_2^2 \in \frakm$, $t_1^2 = -ct_2^2 + m$ and $ct_2^2 = -t_1^2 - m$ for some $m \in \frakm$.
 Since either $t_1, t_2$ is invertible, this implies that both $t_1, t_2 \in \frakm$, a contradiction.
-Thus $t_1^2 + c t_2^2 \in \Rstar$ and $t_1 + t_2 \delta \in S^\star$.
-Now suppose that both $t_1, t_2 \in \Rstar$ but $t_1 + t_2 \delta \not \in S^\star$.
+Thus $t_1^2 + c t_2^2 \in \Rstar$ and $t_1 + t_2 \delta \in S^*$.
+\item[Case 2:] Both $t_1, t_2 \not\in \frakm$. 
+Suppose that $t_1 + t_2 \delta \not \in S^*$.
 Then $t_1^2 + ct_2^2 = f \in \frakm$, and
 \[
--c = (t_1^{-1})^2(t_1^2 - f) = (t_2^{-1})^2 t_1^2(1 - (t_1^{-1})^2f)
-\].
+-c = (t_1^{-1})^2(t_1^2 - f) = (t_2^{-1})^2 t_1^2(1 - (t_1^{-1})^2f).
+\]
 By assumption (because $A$ is a local ring), $1 - (t_1^{-1})^2 f \in R^{*2}$, implying that $-c \in R^{*2}$, a contradiction.
-Thus $S$ is local with maximal ideal $S\frakm$.
+Thus $t_1 + t_2 \delta \in S^*$.
+\end{description}
+Therefore $S\frakm$ is an ideal of $S$, containing every non-unit, implying that it is maximal and that $S$ is local.
 
-Thus $S/S\frakm$ is a field. The imbedding $\Rmodm \to S/S\frakm$ allows us to view $S/S\frakm$ as a vector space over $\Rmodm$,
-with $\{1 + S\frakm, \delta + \frakm \}$ as a basis. Thus $S/S\frakm$ is a quadratic extension of $\Rmodm$.
-The involution of $S$ induces the $\Rmodm$-automorphism of $S/S\frakm$ of orer 2 and the norm map $J$ induces the norm map $(S/S\frakm)^* \to (R/\frakm)^*$.
+Because $S$ is commutative, $S/S\frakm$ is a field. The imbedding $\Rmodm \to S/S\frakm$ allows us to view $S/S\frakm$ as a vector space over $\Rmodm$,
+with $\{1 + S\frakm, \delta + S \frakm \}$ as a basis. Thus $S/S\frakm$ is a quadratic extension of $\Rmodm$.
+The involution of $S$ induces the $\Rmodm$-automorphism of $S/S\frakm$ of order 2 and the norm map $J$ induces the norm map $(S/S\frakm)^* \to (R/\frakm)^*$.
 
 % Try to figure this out in more detail.
 Since $\Rmodm$ is known to be $F_q$, this map is known to be surjective.
@@ -163,7 +172,7 @@ j(s) = e + f = e(1 + e^{-1}f).
 Since $1 + e^{-1} f \in R^{*2}$ (by surjectivity of squaring map of $1 + \frakm$), it follows that $e$ is in the image of $J$, as claimed.
 % I may want to dig into this in more detail as well.
 
-By the claim there are $t_1, t_2 in R$ with at least one in $R^*$, such that $t_1^2 + t_2^2 c = r/a$.
+By the claim there are $t_1, t_2 \in R$ with at least one in $R^*$, such that $t_1^2 + t_2^2 c = r/a$.
 Then $v = u_1 t_1 + u_2 t_2$ is primitive and
 \[
 h(v,v) = at_1^2 + bt_2^2 = r.
@@ -176,7 +185,7 @@ This completes the proof.
 There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
 \begin{align*}
   h(v_1, v_1) &= \dotsb = h(v_{m-1}, v_{m-1}) = 1 \text{ and } \\
-  h(v_m, v_m) &= 1 \text{ if } Q{\Astar} = \Rstar \\
+  h(v_m, v_m) &= 1 \text{ if } Q(\Astar) = \Rstar \\
   h(v_m, v_m) &\in \{1, \varepsilon \} \text{ if } Q(\Astar) = {\Rstar}^2
 \end{align*}
 \end{theorem}
@@ -185,23 +194,31 @@ There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
 To prove this, we'll use induction on $m$.
 Assume that $m = 1$. By \cref{lemma2.2}, $V$ has a basis $\{u_1\}$ such that $h(u_1, u_1) \in \Rstar$.
 If $Q(\Astar) = \Rstar$, then $h(u_1, u_1) = a a^*$ for some $a \in \Astar$.
-Let $v = u_1 a^{-1}$.
+Let $v_1 = u_1 a^{-1}$.
 Then
 \[
-h(v, v) = {a^{-1}}* a^{-1} h(u, u) = 1.
+h(v_1, v_1) = (a^{-1})^* a^{-1} h(u, u) = 1.
 \]
-If $Q(\Astar) = \Rstarsq$, then $h(u_1, u_1) = \varep b$ for some $b \in \Rstarsq$ (note that from earlier result, $[\Rstar : \Rstarsq] = 2$).
+If $Q(\Astar) = \Rstarsq$, then consider two cases.
+\begin{description}
+\item[Case 1:] $h(u_1, u_1) \in \Rstar* \backslash \Rstarsq$.
+Then there exists $v$ such that $h(v,v) = 1$, as shown.
+\item[Case 2:] $h(u_1, u_1) \in \Rstarsq$.
+Then $h(u_1, u_1) = \varep b$ for some $b \in \Rstarsq$ (note that from earlier result, $[\Rstar : \Rstarsq] = 2$).
 Then $b = r^2$ for some $r \in \Rstar$.
 Let $v = r^{-1} u_1$. Then
 \[
 h(v, v) = {(r^{-1})}^2 h(u, u) = b^{-1} \varep b = \varep.
 \]
+\end{description}
+Taking $v_1 = v$ gives $h(v_1, v_1) \in \{1, \varep\}$.
 
 Now assume that $m > 1$ and that the hypothesis is true for $m - 1$.
-By proposision 2.4, there exists $u_1$ such that $h(u_1, u_1) = 1$.
-Using lemma 2.3, this can be extended to a basis $u_1, v_2, \dotsc, v_m$.
-But $V' = \text{span} \{v_2, \dotsc v_m\}$ has dimension $m - 1$ and thus there is a basis $u_2, \dotsc u_m$ of $V'$.
-Then $\{u_1, u_2, \dotsc, u_m \}$ is a basis of $V$ with the desired property.
+By \cref{prop3.4}, there exists $v_1$ such that $h(v_1, v_1) = 1$.
+Using \cref{lemma2.3}, this can be extended to an orthogonal basis $v_1, u_2, \dotsc, u_m$.
+Let $V' = \text{span} \{u_2, \dotsc, u_m \}$.
+Then $V'$ has dimension $m - 1$ and by the inductive hypothesis there exits is a basis $v_2, \dotsc v_m$ of $V'$.
+Then $\{v_1, v_2, \dotsc, v_m \}$ is a basis of $V$ with the desired property.
 \end{proof}
 
 Let $\mathfrak{i}$ be a $*$ invariant ideal of $A$ and let $\overline{A} = A / \mathfrak{i}$.
@@ -218,46 +235,49 @@ Let $h_1$ and $h_2$ be non-degenerate hermitian forms on $V$.
 Then the following conditions are equivalent:
 \begin{itemize}
 \item[(a)] $h_1$ and $h_2$ are equivalent.
-\item[(b)] The reductions $\overline{h_1}$ and $h_2$ modulo $\frakr$ are equivalent.
+\item[(b)] The reductions $\overline{h_1}$ and $\overline{h_2}$ modulo $\frakr$ are equivalent.
 \item[(c)] The discriminants of $\overline{h_1}$ and $\overline{h_2}$ are the same.
 \end{itemize}
 \end{corollary}
 \begin{proof}
 (a) implies (b): Assume that $h_1$ and $h_2$ are equivalent.
-Then there exists some isomorphism $A: V \to V$ sych that $h_1(v,w) = h_2(Av, Aw)$ for all $v, w \in V$.
+Then there exists some isomorphism $T: V \to V$ (with matrix representation $T$) such that $h_1(v,w) = h_2(Tv, Tw)$ for all $v, w \in V$.
 Then
 \[
-\overline{h_1}(v + V \frakr, w + V \frakr) = h_1(v, w) = h_2(Av, Aw) = \overline{h_2}(Av + V \frakr, Aw + V \frakr)
+\overline{h_1}(v + V \frakr, w + V \frakr) = h_1(v, w) = h_2(Tv, Tw) = \overline{h_2}(Tv + V \frakr, Tw + V \frakr)
 \]
 and $\overline{h_1}$ is equivalent to $\overline{h_2}$.
 
-(b) implies (c): Assume that $v_1 + V \frakr, \dotsc, v_m + V \frakr$ is the basis for $\overline{V}$ given in \cref{theorem3.5} and that $\overline{h_1}(v + V\frakr, w + V \frakr) = \overline{h_2}(Av + V \frakr, Aw + V \frakr)$ for some invertible $A$.
-Then $A v_1 + V \frakr, \dotsc, A v_m + V \frakr$ is a basis; and is orthogonal with respect to $\overline{h_2}$.
+(b) implies (c): Assume that $v_1 + V \frakr, \dotsc, v_m + V \frakr$ is the orthogonal basis for $\overline{V}$ 
+given in \cref{theorem3.5} and that $\overline{h_1}(v + V\frakr, w + V \frakr) = \overline{h_2}(Tv + V \frakr, Tw + V \frakr)$ 
+for some invertible $T$ and all $v \in V$.
+Then $T v_1 + V \frakr, \dotsc, T v_m + V \frakr$ is a basis; and is orthogonal with respect to $\overline{h_2}$.
 Let $d$ represent the discriminant function.
 Using the fact that the determinant is invariant under choice of basis:
 \begin{align*}
 d(\overline{h_1}) &= \prod_{i=1}^m \overline{h}_1(v_i + V \frakr, v_i + V \frakr)\\
-&= \prod_{i=1}^m \overline{h_2}(Av_i + V \frakr, Av_i + V \frakr)\\ &
+&= \prod_{i=1}^m \overline{h_2}(Tv_i + V \frakr, Tv_i + V \frakr)\\ &
 = d(\overline{h2})
 \end{align*}
 
 (c) implies (a): Assume that the discriminants of $\overline{h_1}$ and $\overline{h_2}$ are the same.
-Let $v_1, \dotsc, v_m$ and $w_1, \dotsc, w_m$ be orthoginal bases satisfying \cref{theorem3.5} for $h_1$ and $h_2$ respectively.
-Then $h_1(v_i, v_i) = h_2(w_i, w_i)$ for all $i$ (because the discriminants are equal, it is ensured that $h_1(v_m,v_m) = h_2(w_m, w_m)$.
-Let $A: V \to V$ be defined by $v_i \mapsto w_i$.
+Let $v_1, \dotsc, v_m$ and $w_1, \dotsc, w_m$ be orthogonal bases satisfying \cref{theorem3.5} for $h_1$ and $h_2$ respectively.
+Then $h_1(v_i, v_i) = h_2(w_i, w_i)$ for all $i$ (because the discriminants are equal, it is ensured that $h_1(v_m,v_m) = h_2(w_m, w_m)$).
+Let $T: V \to V$ be defined by $v_i \mapsto w_i$.
 Then for $x, y \in V$:
 \begin{align*}
 h_1(x, y) &= \sum_{i=1}^m h_1(v_i x_i, v_i y_i) \\
 &= \sum_{i=1}^m x_i^* y_i h_i(v_i, v_i) \\
-&= \sum_{i=1}^m x_i^*y_i h_2(Av_i, Av_i)\\
-&= \sum_{i=1}^m h_2(Av_i x_i, A v_i y_i)\\
-&= h_2(Ax, Ay)
+&= \sum_{i=1}^m x_i^*y_i h_2(Tv_i, Tv_i)\\
+&= \sum_{i=1}^m h_2(Tv_i x_i, T v_i y_i)\\
+&= h_2(Tx, Ty)
 \end{align*}
 and $h_1$ and $h_2$ are equivalent.
 
 \end{proof}
 
 Given $r_1, \dotsc, r_m \in \Rstar$ we say that $h$ is of type $\{r_1, \dotsc, r_m \}$ if there is a basis $B$ of $V$ relative to which $h$ has matrix $\text{diag} \{r_1, \dotsc, r_m \}$.
+Note that because these matrices contain only elements of $\Rstar$, which is commutative, the notion of a determinant is well defined.
 
 \begin{lemma}\label{extralemma1}
 $h$ is of type $\{r_1, \dotsc, r_m \}$ and $\{s_1, \dotsc, s_m \}$ if and only if \newline $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
@@ -271,15 +291,15 @@ It's clear that if $m = 1$ that this implies that $h$ is of type $\{s_1 \}$.
 Consider the case that $m > 1$ and assume also that $h$ is not of type $\{s_1, s_2, \dotsc, s_m \}$.
 Then for every orthogonal basis $B$ of $V$ where $h(v_i, v_i) \in \Rstar$ for $v_i \in B$, let $k_B$ denote the number of $v_i \in V$ such that $h(v_i, v_i) \ne s_i$, and let $k = \min \{k_B : B \text{ is a basis of } V \}$.
 Because $h$ is not of type $\{s_1, \dotsc, s_m \}$, $k > 0$.
-Similarly, by proposition 3.4, $k <= m - 1$.
-Without loss of generality, assume that $h(v_i, v_i) = s_i$ when $i <= m - k$ and $h(v_i, v_i) = d_i s_i$ where $d_i \ne 1 \pmod{Q(\Astar)}$ when $i > m - k$.
+Similarly, by proposition 3.4, $k \leqslant m - 1$.
+Without loss of generality, assume that $h(v_i, v_i) = s_i$ when $i \leqslant m - k$ and $h(v_i, v_i) = d_i s_i$ where $d_i \ne 1 \pmod{Q(\Astar)}$ when $i > m - k$.
 Because $h$ is of type $\{h(v_i,v_i): 1 \le i \le m \}$, and $\det(h)$ is invariant under choice of basis,
 \[
-\prod_{i=1}^m r_i = \prod_{i=1}^m h(v_i, v_i) = \left(\prod_{i=1}^{m - k} s_i \right) \left( \prod_{i=m - k}^m d_i s_i \right)
+\prod_{i=1}^m r_i = \prod_{i=1}^m h(v_i, v_i) = \left(\prod_{i=1}^{m - k} s_i \right) \left( \prod_{i=m-k+1}^m d_i s_i \right)
 \]
 and by assumption,
 \[
-\prod_{i=m-k}^m d_i = 1 \mod{Q(\Astar)}.
+\prod_{i=m-k+1}^m d_i = 1 \mod{Q(\Astar)}.
 \]
 This result shows that $k > 1$.
 Now let $V_1 = \text{span}\{v_i: i \le m - k\}$ and $V_2 = \text{span}\{v_i: i > m - k\}$.
@@ -298,12 +318,12 @@ By \cref{theorem3.5}, we know that $h$ is of type $\{1, 1, \dotsc, 1\}$ or $\{1,
 If $-1 \in Q(\Astar)$, then the result is immediate.
 Assume that $Q$ is not surjective and that $-1 \not\in Q(\Astar)$.
 Let $r = 1$ if $h$ is of type $\{1, 1, \dotsc, 1\}$ and $r = \varep$ if $h$ is of type $\{1, 1, \dotsc, \varep\}$.
-Let $k = \frac{m}{2}$ if $m$ is even, and $k = \frac{m}{2} + 1$ if $m$ is odd.
-By the previous result, if $r (-1)^k \delta ^{-1}$, then $h$ is of type $\{1, -1, \dotsc, 1, -\delta\}$ ($m$ even) or $\{1, -1, \dotsc, 1, -1, -\delta \}$ ($m$ odd), where $\delta \in \{1, \varep\}$.
+Let $k = \frac{m}{2}$ if $m$ is even, and $k = \frac{m+1}{2}$ if $m$ is odd.
+By the previous result, if $r (-1)^k \delta ^{-1} \in Q(\Astar)$, for some $\delta \in \Rstar$, then $h$ is of type $\{1, -1, \dotsc, 1, -\delta\}$ ($m$ even) or $\{1, -1, \dotsc, 1, -1, -\delta \}$ ($m$ odd), where $\delta \in \{1, \varep\}$.
 Note that because $-1 \not\in Q(\Astar) = \Rstarsq$ and $\varep \not \in Q(\Astar)$, because $[\Rstar : \Rstarsq] = 2$, $-\varep \in Q(\Astar)$.
 Consider 4 cases:
 \begin{description}
-\item[Case 1: $r = 1$ and $k$ even] Let $\delta = 1$. Then $r (-1)^k \delta = 1 \in Q(A*)$ and $h$ is of type $\{1, -1, \dotsc, -1 \}$.
+\item[Case 1: $r = 1$ and $k$ even] Let $\delta = 1$. Then $r (-1)^k \delta = 1 \in Q(\Astar)$ and $h$ is of type $\{1, -1, \dotsc, -1 \}$.
 \item[Case 2: $r = 1$ and $k$ odd] Let $\delta = \varep$. Then $r (-1)^k \delta = -\varep \in Q(A)$ and $h$ is of type $\{1, -1, \dotsc, -\varep \}$.
 \item[Case 3: $r = \varep$ and $k$ even] Let $\delta = \varep$. Result follows similarly.
 \item[Case 4: $r = \varep$ and $k$ odd] Let $\delta = 1$. Result follows similarly.
@@ -318,7 +338,7 @@ Even when $Q$ is not surjective, if $m$ is odd there is only one unitary group o
 Let $\Lambda$ be the set of all values $h(u,u)$ with $u \in V$ primitive.
 Assume that the involution $*$ induces on $A/\frakr$ is the identity.
 \begin{description}
-\item[(a)] Suppose $m=1$. If $h$ is of type $\{1\}$ then $\Lambda = \Rstarsq$ and if $h$ is of type $\{\varep\}$ then $\Lambda = \Rstar/\Rstarsq$.
+\item[(a)] Suppose $m=1$. If $h$ is of type $\{1\}$ then $\Lambda = \Rstarsq$ and if $h$ is of type $\{\varep\}$ then $\Lambda = \Rstar \backslash \Rstarsq$.
 \item[(b)] Suppose $m=2$. If $h$ is of type $\{1, -1\}$, then $\Lambda = R$ and if $h$ is of type $\{1, - \varep\}$ then $\Lambda = \Rstar$.
 \item[(c)] If $m > 2$ then $\Lambda = R$.
 \end{description}
@@ -345,9 +365,11 @@ Assume that $v = u_1 a_1 + u_2 a_2$ is primitive and $h(v,v) \in \frakm$.
 That is, $a_1 a_1^* - \varep a_2 a_2^* = f \in \frakm$.
 Because $v$ is primitive, at least one $a_1, a_2$ is a unit.
 Without loss of generality, assume that $a_1 \in \Astar$.
-Then $a_2$ is also a unit because $\varep a_2 a_2 \star \ne 0$ in $A / \frakr$.
-Becuase $Q(A) = \Rstarsq$, $a_1^2 = b_1 b_1^*$ and $a_2^2 = b_2 b_2^*$ for some $b_1, b_2 \in \Rstar$. 
-Then $b_1 b_1^* - \varep b_2 b_2^* = f$ and $c_1^2 - \delta c_2^2 = 0$ in $A / \frakr$ with $c_1, c_2, \delta \ne 0$.
+Then $a_2$ is also a unit because $\varep a_2 a_2^* \ne 0$ in $A / \frakr$.
+Because $Q(A) = \Rstarsq$, $a_1 a_1^* = b_1^2$ and $a_2 a_2^* = b_2^2$ for some $b_1, b_2 \in \Rstar$. 
+Then $b_1^2 - \varep b_2^2 = f$. 
+Let $c_1 = b_1 + \frakr, c_2 = b_2 + \frakr, \delta = \varep + \frakr \in \Amodr$
+Then $c_1^2 - \delta c_2^2 = 0$ in $A / \frakr$ with $c_1, c_2, \delta \ne 0$.
 But $\delta = c_1^2 (c_2^{-1})^2 = (c_1 c_2^{-1})^2$, contradicting the assumption that $\varep \not\in \Rstarsq$.
 Thus $h(v,v) \in \Rstar$ for all primitive $v$.
 Because $h$ is of type $\{-1, \varep \}$ as well as $\{1, -\varep\}$ there are primitive vectors $u$ and $v$ with $h(u,u) = 1$ and $h(v,v) = \varep$.
