@@ -1,5 +1,5 @@
 \begin{center}
-\section*{Background in Hermitian Geometry}
+\section{Background in Hermitian Geometry}
 \end{center}
 In this section, we'll define and introduce introduce several objects that will be used throughout the paper.
 Some definitions:
@@ -17,6 +17,22 @@ Note that $R$ is local as well, with maximal ideal $R \cap \mathfrak{r}$. This i
 \item Let $Q: A^* \to R^*: a \mapsto aa^*$ denote the norm-map.
 \end{itemize}
 
+\begin{example}\label{ex2.1}
+Returning to the objects defined in the introduction, we can see an example of each of these objects using the \padic integers.
+Let $K, \mathcal{O}, \mathfrak{p}, \mathcal{R}$ and $\omega$ be the same as defined previously.
+For simplicity, assume that $p \equiv 3 \mod 4$.
+Then $\omega = \sqrt{p}$.
+Then
+\begin{itemize}
+\item $A = \mathcal{R}/(\omega)^{2\ell}$ is a local ring with maximal ideal $\frakr = (\omega)$.
+\item $\Astar = A \backslash (\omega) = \{a + b \omega : a \not\in (p) \}$.
+\item $*: A \to A$ is defined by $a + b\omega \mapsto a - b\omega$.
+\item $R = \{a + b\omega : b = 0\}$.
+\item $\Rstar = \{a + b\omega: b = 0 \text{ and } a \not\in (p)\}$.
+\item $Q: \Astar \to Rstar: a + b\omega \mapsto a^2 - b^2 p^2$.
+\end{itemize}
+\end{example}
+
 Let $V$ be a right $A$-module and $h: V \times V \to A$ be a Hermitian form.
 By definition, $h$ is linear in the second variable and $h(v, u) = h(u, v)^*$ for $u, v \in V$.
 Then $h(u,u) = h(u,u)^*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
@@ -24,18 +40,21 @@ Then $h(u,u) = h(u,u)^*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
 Now consider the dual space $V^*$. Define an operation $V^* \times A \to V^*$ by $(\alpha a)(v) = a^* \alpha(v)$ where $\alpha \in V^*, a \in A, v \in V$.
 Under this operation, $V^*$ is a right $A$-module.
 Now we can define a homomorphism of right $A$-modules $\gamma_h: V \to V^*$ associated with $h$ given by $\gamma_h(u) = h(u, -)$.
-
-% Should I show detailed calculation here?
-
 Additionally, for the remainder of the paper:
-
 \begin{itemize}
 \item Assume that $h$ is non-degenerate; $\gamma_h$ is an isomorphism.
-\item Let $U$ be the subgroup of $GL(V)$ preserving $h$. I'm guessing that this means for $\varphi \in U, u,v \in V$, $h(\varphi(u), \varphi(v)) = h(u,v)$.
+\item Let $U$ be the subgroup of $GL(V)$ preserving $h$. That is, for $\varphi \in U, u,v \in V$, $h(\varphi(u), \varphi(v)) = h(u,v)$.
 \item Assume the existence of an element $d \in A$ such that $d + d^* = 1$.
 \item Assume that $V$ is a free $A$-module of rank $m \ge 1$.
 \end{itemize}
 For the remainder of this section, let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$.
+
+\begin{example}\label{ex2.2}
+Continuing the example, let $a = v_1 a_1 + \dotsb v_m a_m$ and $b = v_1 b_1 + \dotsb v_m b_m$ with $a_i, b_i \in A$ for $1 \le i \le m$.
+Define $h: V \times V \to A$ by $h(a, b) = a_1^* b_1 + dotsc + a_m^* b_m$.
+This is a Hermitian form, and can be verified to be non-degenerate.
+For the rest of the paper, assume that this is how $h$ is defined in all examples.
+\end{example}
 
 % Lemma 2.1
 \begin{lemma}\label{lemma2.1}
@@ -52,6 +71,14 @@ Let $\alpha \in V^*$ be the linear functional such that $\alpha(v_1) = d$ and $\
 Because $h$ is assumed to be non-degenerate, there exists $u \in V$ such that $h(u,-) = \alpha$.
 Then $d = \alpha(v_1) = h(u,v_1)$ and $1 = d + d^* = h(u,v_1) + h(u,v_1)^* \not\in \mathfrak{m}$, contradicting the original hypothesis.
 \end{proof}
+
+\begin{example}
+Note that in the \padic numbers, $2^{-1}$ is a series satisfying $2^{-1} + 2^{-1} = 1$.
+Because $2^{-1}$ is a \padic integer, $2^{-1} \in R$ and is fixed under the involution.
+Thus $d = 2^{-1}$.
+Using $h$ as defined in \cref{ex2.2}, pick $u = v_1 2^{-1}$.
+Then $h(u, v_1) = 2^{-1}$ and $h(u, v_i) = 0$ for $i \ne 1$, as desired.
+\end{example}
 
 % Lemma 2.2
 \begin{lemma}\label{lemma2.2}
