@@ -21,7 +21,7 @@ The real numbers $\mathbb{R}$ and rational numbers $\mathbb{Q}$ are examples of 
 A local field is said to be \textbf{non-archimidean} if this property does not hold.
 \item In any field, the \textbf{ring of integers} refers to the set of all integral elements, that is, 
 elements that are the root of a monic polynomial with integer coefficients 
-(that is, coefficients from the set $\{z \cdot 1_K : z \in \mathbb{Z} \}$.
+(that is, coefficients from the set $\{z \cdot 1_K : z \in \mathbb{Z} \}$, where $1_k$ is the multiplicative identity of $K$).
 \item Given a ring $A$, an automorphism $*: A \to A$ (denoted $a \mapsto a^*$ for $a \in A$) is an \textbf{involution} 
 if it satisfies $(a^*)^* = a$ for all $a \in A$ and $(ab)^* = b^* a^*$ for $a, b \in A$.
 \end{itemize}
@@ -43,12 +43,12 @@ where $n_p(x) = \max \{n: p^n | x \}$ if $p | x$ and $n_p(x) = 1$ if $p \nmid x$
 This can be shown to satisfy the definition of a norm.
 Using this norm, every element $a$ of the form
 \[
-a = \sum_{i=k}^\infty a_i p_i \hbox{0.5cm} (k \text{ not necessarily positive})
+a = \sum_{i=k}^\infty a_i p_i \;\;\; (k \text{ not necessarily positive})
 \]
 can be shown to be a field, known as the \padic numbers (denoted $K$ for the remainder of the section).
 The standard integers $\mathbb{Z} \subset K$ form a ring of integers, denoted $\mathcal{O}$, 
 with maximal ideal $(p)$ and residue field $F_p = \mathcal{O}/\mathfrak{p}$ of characteristic $p$.
-Elements of $\mathcal{O} \backslash (p)$ are invertible (see \cite{katok} for an explanation).
+Unlike the standard integers, elements of $\mathcal{O} \backslash (p)$ are invertible (see \cite{katok} for an explanation).
 
 Define $F = K[\sqrt{p}]$.
 Depending on $p \mod 4$, the ring of integers of $F$ is slightly different (see \cite{milneANT} or \cite{samuel} for a more detailed discussion).
