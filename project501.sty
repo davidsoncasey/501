@@ -5,6 +5,7 @@
 \usepackage{cleveref}
 \usepackage{thmtools}
 \usepackage{enumitem}
+\usepackage{titlesec}
 
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
@@ -26,3 +27,7 @@
 \newcommand{\Rstarsq}{{\Rstar}^2}
 
 \newcommand{\varep}{\varepsilon}
+
+% Section headings centered
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{\thesection.}{1em}{}{}
+\titleformat{\subsection}[block]{\large\bfseries\filcenter}{\thesubsection}{1em}{}{}

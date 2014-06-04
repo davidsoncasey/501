@@ -1,30 +1,33 @@
-\begin{center}
-\section{An Introduction to Local Rings}
-\end{center}
+\section{Introduction}
 
-For my 501 project, I'll be working through the paper ``Unitary Groups Over Local Rings"\cite{cruickshank}.
+For my 501 project, I'll be working with the paper ``Unitary Groups Over Local Rings"\cite{cruickshank}.
 The paper contains a discussion of hermitian forms and unitary groups over a local ring.
 In my project, I'll provide an introduction to the properties of local rings, and a detailed discussion of hermitian forms
-defined on module of a local ring.
+defined on module over local ring.
+Several results are presented that investigate properties of such modules, as well as specific properties of hermitian forms on these modules,
+and relationships between a norm map and hermitian geometry.
+
+\subsection{Basics of Local Rings}
 
 This introduction gives a brief discussion of local fields and the construction of a local ring $A$ from a local field $K$.
-In this example $K$ will be taken to be the \padic numbers, but this construction generalizes to any local field.
 First, some definitions:
 
-\begin{itemize}[noitemsep]
-\item A \textbf{local field} is a locally compact topological field with respect to a non-discrete topology.
-This allows the field to be equipped with an absolute value.
-The real numbers $\mathbb{R}$ and rational numbers $\mathbb{Q}$ are examples of local fields.
-\item A local field $K$ is said to be \textbf{archimidean} if for any element $x \in K$, there exists $n$ such that $|nx| > 1$.
+\begin{itemize}
+\item A field $K$ is a \textbf{local field} if it is complete with respect to a discrete valuation and a has finite residue field.
+An equivalent definition is that a field is locally compact with respect to a non-discrete topology (see \cite{serre} for a detailed explanation).
+This allows an absolute value function to be defined.
+The real numbers $\mathbb{R}$ and rational numbers $\mathbb{Q}$ are examples of local fields, with the standard topology and absolute values.
+\item A local field $K$ is said to be \textbf{archimidean} if for any element $x \in K$, there exists $n \in \mathbb{N}$ such that $|nx| > 1$.
 A local field is said to be \textbf{non-archimidean} if this property does not hold.
 \item In any field, the \textbf{ring of integers} refers to the set of all integral elements, that is, 
-elements that are the root of a monic polynomial with integer coefficients.
-\item Given a ring $A$, an automorphism $*: A \to A$ denoted ($a \mapsto a^*$ for $a \in A$) is an \textbf{involution} 
+elements that are the root of a monic polynomial with integer coefficients 
+(that is, coefficients from the set $\{z \cdot 1_K : z \in \mathbb{Z} \}$.
+\item Given a ring $A$, an automorphism $*: A \to A$ (denoted $a \mapsto a^*$ for $a \in A$) is an \textbf{involution} 
 if it satisfies $(a^*)^* = a$ for all $a \in A$ and $(ab)^* = b^* a^*$ for $a, b \in A$.
 \end{itemize}
 
 Given a prime number $p$, consider the representations of the integers $\mathbb{Z}$ base $p$.
-That is, for any integers $a$, $a$ can be expressed as a sum
+That is, for any integer $a$, $a$ can be expressed as a sum
 \[
 a = \sum_{i=0}^n a_i p^i
 \]
@@ -36,17 +39,19 @@ p^{-n_p(x)} &\text{ if } x \ne 0\\
 0 &\text{ if } x = 0
 \end{cases}
 \]
-where $n_p(x) = \max{n: p^n | x}$ if $p | x$ and $n_p(x) = 1$ if $p \nmid x$.
+where $n_p(x) = \max \{n: p^n | x \}$ if $p | x$ and $n_p(x) = 1$ if $p \nmid x$.
 This can be shown to satisfy the definition of a norm.
-Using this norm, the set completion of all expansions of the form
+Using this norm, every element $a$ of the form
 \[
-a = \sum_{i=k}^\infty a_i p_i
+a = \sum_{i=k}^\infty a_i p_i \hbox{0.5cm} (k \text{ not necessarily positive})
 \]
-(with $k$ not necessarily positive) can be shown to be a field, known as the \padic numbers (denoted $K$) for the remainder of the section.
-The integers form a ring of integers, $\mathcal{O}$, 
-with maximal ideal $\mathfrak{p} = (p)$ and residue field $F_q = \mathcal{O}/\mathfrak{p}$ of characteristic $p$.
-Let $F = K[\sqrt{p}]$.
-Depending on $p \mod 4$, the ring of integers is slightly different (see \cite{milneANT} or \cite{samuel} for a more detailed discussion).
+can be shown to be a field, known as the \padic numbers (denoted $K$ for the remainder of the section).
+The standard integers $\mathbb{Z} \subset K$ form a ring of integers, denoted $\mathcal{O}$, 
+with maximal ideal $(p)$ and residue field $F_p = \mathcal{O}/\mathfrak{p}$ of characteristic $p$.
+Elements of $\mathcal{O} \backslash (p)$ are invertible (see \cite{katok} for an explanation).
+
+Define $F = K[\sqrt{p}]$.
+Depending on $p \mod 4$, the ring of integers of $F$ is slightly different (see \cite{milneANT} or \cite{samuel} for a more detailed discussion).
 Define
 \[
 \omega = \begin{cases}
@@ -56,8 +61,10 @@ Define
 \]
 Then the ring of integers $\mathcal{R} = \mathcal{O}[\omega]$.
 Then $\mathcal{R}$ is a free $\mathcal{O}$-module of rank $2$.
-$\mathcal{R}$ is a principle ideal domain with a unique prime element $\omega$ (up to units), and $\mathcal{R}/(\omega) \cong F_q$.
+$\mathcal{R}$ is a principle ideal domain with a unique prime element $\omega$ (up to associates), and $\mathcal{R}/(\omega) \cong F_p$.
 There is an involution of $F$ defined by $a + b \omega \mapsto a - b \omega$ that fixes $K$, with $\mathcal{R}$ invariant under this involution.
 Given $\ell \ge 1$, let $A = \mathcal{R} / (\omega)^{2\ell}$.
-Then $A$ is a finite, commutative, principal ring, with an involution inherited from $\mathcal{R}$.
+Then $A$ is a finite, commutative, principal ideal ring, with an involution inherited from $\mathcal{R}$.
 $A$ is also a local ring, a concept that will be introduced in detail in the next section.
+
+
