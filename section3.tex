@@ -4,38 +4,6 @@ A vector $v \in V$ is said to be \textbf{primitive} if $v \not\in V \frakr$.
 This is equivalent to saying that $v$ belongs to a basis of $V$.
 We say that $h$ is \textbf{isotropic} if there is a primitive vector $v \in V$ such that $h(v,v) = 0$.
 
-\begin{example}\label{ex3.1}
-Using $h$ as defined in \cref{ex2.2}, $h$ is not isotropic.
-To see this, let $u = v_1 a_1 + \dotsc v_m a_m$ where $a_i = b_i + c_i \sqrt{p}$.
-Then
-\begin{align*}
-h(u,u) &= a_1^* a_1 + \dotsb + a_m^*a_m\\
-&= b_1^2 - c_1^2 p + \dotsb + b_m - c_m^2p\\
-&= \sum_{i=1}^m b_i^2 - \sum_{i=1}^m c_i^2 p
-\end{align*}
-Then if $h(u,u) = 0$
-\[
-\sum_{i=1}^m b_i^2 = p \sum_{i=1}^m c_i^2
-\]
-Assume that
-\[
-\sum_{i=1}^m c_i = s p^j
-\]
-where $p \nmid s$.
-Then $s$ is invertible and 
-\[
-\sum_{i=1}^m b_i^2 = sp^{j+1}.
-\]
-Similarly, $p-1$ is invertible because $p-1 \not\in (\sqrt{p})$.
-Then
-\begin{align*}
-s^{-1}(p-1)^{-1}\left(\sum b_i^2 - \sum c_i^2 \right) &= s^{-1}(p-1)^{-1}(sp^{j+1} - sp^j)\\
-&= p^j
-\end{align*}
-implying that $s^{-1}(p-1)^{-1} | p^j$, a contradiction.
-Thus $h$ cannot be isotropic.
-\end{example}
-
 % Lemma 3.1
 \begin{lemma}\label{lemma3.1}
 Suppose $h$ is isotropic. Then, given any $r \in R$ there is a primitive vector $v$ satisfying $h(v,v) = r$.
@@ -436,6 +404,13 @@ Then $-h(u_3, u_3) \in \Rstar$ an by \cref{prop3.4}, there exists a primitive ve
 Then $u = v + u_3$ is primitive with $h(u,u) = 0$, and applying lemma 3.1 shows that $\Lambda = R$.
 \end{proof}
 
+\begin{corollary}\label{cor1}
+When $m = 1$, $h$ cannot be isotropic. When $m = 2$, $h$ is isotropic if it is of type $\{1, -1\}$. When $m \ge 3$, $h$ must be isotropic.
+\end{corollary}
+\begin{proof}
+Follows directly from preceding result.
+\end{proof}
+
 \begin{example}
 Continue with $h$ as defined previously.
 In our example, the involution that $*$ induces on $\Amodr$ is the identity.
@@ -453,5 +428,6 @@ Then $y = h(vb, vb)$ and $\Rstar \backslash \Rstarsq \subset \Lambda$, implying 
 \item[(c)] By assumption, $h(v_3, v_3) = 1$. Applying \cref{prop3.4}, there exists a primitive $u \in v_1 A \oplus v_2 A$ such that $h(u,u) = -1$.
 Then $u + v_3$ is primitive and $h(u + v_3, u + v_3) = 0$, allowing \cref{lemma3.1} to be applied and shows that $\Lambda = R$.
 \end{description}
+This shows, that by \cref{cor1}, $h$ from our example is not isotropic if $m = 1$ or $m = 2$.
 \end{example}
 
