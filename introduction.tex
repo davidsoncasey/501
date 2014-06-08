@@ -3,9 +3,9 @@
 For my 501 project, I'll be working with the paper ``Unitary Groups Over Local Rings"\cite{cruickshank}.
 The paper contains a discussion of hermitian forms and unitary groups over a local ring.
 In my project, I'll provide an introduction to the properties of local rings, and a detailed discussion of hermitian forms
-defined on module over local ring.
+defined on modules over a local ring.
 Several results are presented that investigate properties of such modules, as well as specific properties of hermitian forms on these modules,
-and relationships between a norm map and hermitian geometry.
+and relationships between norm maps and hermitian geometry.
 
 \subsection{Basics of Local Rings}
 
@@ -15,13 +15,16 @@ First, some definitions:
 \begin{itemize}
 \item A field $K$ is a \textbf{local field} if it is complete with respect to a discrete valuation and a has finite residue field.
 An equivalent definition is that a field is locally compact with respect to a non-discrete topology (see \cite{serre} for a detailed explanation).
-This allows an absolute value function to be defined.
+This allows an absolute value function $|\cdot\|$ to be defined.
 The real numbers $\mathbb{R}$ and rational numbers $\mathbb{Q}$ are examples of local fields, with the standard topology and absolute values.
+
 \item A local field $K$ is said to be \textbf{archimidean} if for any element $x \in K$, there exists $n \in \mathbb{N}$ such that $|nx| > 1$.
 A local field is said to be \textbf{non-archimidean} if this property does not hold.
+
 \item In any field, the \textbf{ring of integers} refers to the set of all integral elements, that is, 
 elements that are the root of a monic polynomial with integer coefficients 
 (that is, coefficients from the set $\{z \cdot 1_K : z \in \mathbb{Z} \}$, where $1_k$ is the multiplicative identity of $K$).
+
 \item Given a ring $A$, an automorphism $*: A \to A$ (denoted $a \mapsto a^*$ for $a \in A$) is an \textbf{involution} 
 if it satisfies $(a^*)^* = a$ for all $a \in A$ and $(ab)^* = b^* a^*$ for $a, b \in A$.
 \end{itemize}
