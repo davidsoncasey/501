@@ -5,43 +5,66 @@ Some definitions:
 
 \begin{itemize}
 \item A ring is said to be \textbf{local} if it has a unique maximal left ideal or unique maximal right ideal.
-\item The \textbf{Jacobson radical} of a ring $R$, denoted $J(R)$ is the intersection of all maximal left (right) ideals. In a local ring, $J(R)$ coincides with the unique maximal left ideal and unique maximal right ideal, showing that the maximal ideal is two sided.
+\item The \textbf{Jacobson radical} of a ring $R$, denoted $J(R)$ is the intersection of all maximal left (right) ideals.
+In a local ring, $J(R)$ coincides with the unique maximal left ideal and unique maximal right ideal, showing that the maximal ideal is two sided.
 \end{itemize}
 Throughout the paper, the following objects will be fixed:
 \begin{itemize}
 \item Let $A$ be a local ring with identity.
+
 \item Let $\mathfrak{r}$ be the Jacobson radical of $A$. Because $A$ is local, $\mathfrak{r}$ is maximal, two-sided, and contains all non-units of $A$.
-\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$.
-Note that $R$ is local as well, with maximal ideal $R \cap \mathfrak{r}$. This is because any element of $R$ that is not in $R \cap \mathfrak{r}$ is invertible by definition, and cannot be contained in any ideal.
-\item Let $Q: A^* \to R^*: a \mapsto aa^*$ denote the norm-map.
+
+\item Let $\Astar$ denote the set of all units of $A$.
+
+\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$. 
+
+\item Note that $R$ is local as well, with maximal ideal $\frakm = R \cap \mathfrak{r}$. 
+This is because any element of $R$ that is not in $\frakm$ is invertible by definition, and cannot be contained in any proper ideal.
+
+\item Let $\Rstar$ denote the set of all units of $R$.
+
+\item Let $Q: A \to R: a \mapsto aa^*$ denote the norm-map.
 \end{itemize}
 
 \begin{example}\label{ex2.1}
 Returning to the objects defined in the introduction, we can see an example of each of these objects using the \padic integers.
-Let $K, \mathcal{O}, \mathfrak{p}, \mathcal{R}$ and $\omega$ be the same as defined previously.
-For simplicity, assume that $p \equiv 3 \mod 4$.
+Let $\mathbb{Q}_p, \mathcal{O}, \mathcal{R}$ and $\omega$ be the same as defined in the previous section.
+For simplicity, assume that $p > 2$ and $p \equiv 3 \mod 4$.
 Then $\omega = \sqrt{p}$.
+For $a + b \sqrt{p} \in \mathcal{R}$, let $\overline{a + b\sqrt{p}}$ denote the coset $a + b\sqrt{p} + (p)^{2\ell}$ in $A = \mathcal{R} / (\sqrt{p})^{2\ell}$.
 Then
 \begin{itemize}
-\item $A = \mathcal{R}/(\omega)^{2\ell}$ is a local ring with maximal ideal $\frakr = (\omega)$.
-\item $\Astar = A \backslash (\omega) = \{a + b \omega : a \not\in (p) \}$.
-\item $*: A \to A$ is defined by $a + b\omega \mapsto a - b\omega$.
-\item $R = \{a + b\omega : b = 0\}$ with maximal ideal $\frakm = (\omega)^2$.
-\item $\Rstar = \{a + b\omega: b = 0 \text{ and } a \not\in (p)\}$.
-\item $Q: \Astar \to \Rstar: a + b\omega \mapsto a^2 - b^2 p$.
+\item $A = \mathcal{R}/(\sqrt{p})^{2\ell}$ is a local ring with maximal ideal $\frakr = (\sqrt{p})$.
+
+\item $\Astar = A \backslash (\sqrt{p}) = \{\overline{a + b \sqrt{p}} : a \not\in (p) \}$.
+
+\item $*: A \to A$ is defined by $\overline{a + b\sqrt{p}} \mapsto \overline{a - b\sqrt{p}}$.
+
+\item $R = \{\overline{a + b\sqrt{p}} : b = 0\}$ with maximal ideal $\frakm = (p)$.
+
+\item $\Rstar = \{\overline{a + b\sqrt{p}}: b = 0 \text{ and } a \not\in (p)\}$.
+
+\item $Q: \Astar \to \Rstar: \overline{a + b\sqrt{p}} \mapsto \overline{a^2 - b^2 p}$.
 \end{itemize}
+The definition of these objects will remain constant through examples for the remainder of the paper.
 \end{example}
 
-Let $V$ be a right $A$-module and $h: V \times V \to A$ be a Hermitian form.
-By definition, $h$ is linear in the second variable and $h(v, u) = h(u, v)^*$ for $u, v \in V$.
-Then $h(u,u) = h(u,u)^*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
+Let $V$ be a right $A$-module. 
+A function $h: V \times V \to A$ is a \textbf{Hermitian form} if
+\begin{itemize}
+\item $h$ is linear in the second variable.
+That is, for $u, v, w \in V$ and $a \in A$, $h(u, v + w) = h(u, v) + h(u, w)$ and $h(u, va) = h(u, v)a$
+\item $h(u,v) = h(v, u)^*$.
+\end{itemize}
+Combining these facts shows that $h(ua, v) = a^* h(u, v)$ for all $u, v \in V$ and $a \in A$.
+Also, $h(u,u) = h(u,u)^*$ and $h(u,u) \in R \subseteq Z(A)$ for all $u \in V$.
 
 Now consider the dual space $V^*$. Define an operation $V^* \times A \to V^*$ by $(\alpha a)(v) = a^* \alpha(v)$ where $\alpha \in V^*, a \in A, v \in V$.
 Under this operation, $V^*$ is a right $A$-module.
 Now we can define a homomorphism of right $A$-modules $\gamma_h: V \to V^*$ associated with $h$ given by $\gamma_h(u) = h(u, -)$.
 Additionally, for the remainder of the paper:
 \begin{itemize}
-\item Assume that $h$ is non-degenerate; $\gamma_h$ is an isomorphism.
+\item Assume that $h$ is non-degenerate; By definition, $\gamma_h$ is an isomorphism.
 \item Let $U$ be the subgroup of $GL(V)$ preserving $h$. That is, for $\varphi \in U, u,v \in V$, $h(\varphi(u), \varphi(v)) = h(u,v)$.
 \item Assume the existence of an element $d \in A$ such that $d + d^* = 1$.
 \item Assume that $V$ is a free $A$-module of rank $m \ge 1$.
@@ -49,15 +72,16 @@ Additionally, for the remainder of the paper:
 For the remainder of this section, let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$.
 
 \begin{example}\label{ex2.2}
-Continuing the example, let $a = v_1 a_1 + \dotsb v_m a_m$ and $b = v_1 b_1 + \dotsb v_m b_m$ with $a_i, b_i \in A$ for $1 \le i \le m$.
-Define $h: V \times V \to A$ by $h(a, b) = a_1^* b_1 + dotsc + a_m^* b_m$.
+Continuing with the $A$ as defined in \cref{ex2.1} and assuming that $V$ is a right $A$-module,
+let $a = v_1 a_1 + \dotsb v_m a_m$ and $b = v_1 b_1 + \dotsb + v_m b_m$ with $a_i, b_i \in A$ for $1 \le i \le m$.
+Define $h: V \times V \to A$ by $h(a, b) = a_1^* b_1 + \dotsc + a_m^* b_m$.
 This is a Hermitian form, and can be verified to be non-degenerate.
 For the rest of the paper, assume that this is how $h$ is defined in all examples.
 \end{example}
 
 % Lemma 2.1
 \begin{lemma}\label{lemma2.1}
-There is a vector $u \in V$ such that $h(u,u) \in R^*$.
+There is a vector $u \in V$ such that $h(u,u) \in \Rstar$.
 \end{lemma}
 \begin{proof}
 Assume otherwise; that  $h(u,u) \in \mathfrak{m}$ for all $u \in V$.
@@ -72,7 +96,7 @@ Then $d = \alpha(v_1) = h(u,v_1)$ and $1 = d + d^* = h(u,v_1) + h(u,v_1)^* \not\
 \end{proof}
 
 \begin{example}
-Note that in the \padic numbers, $2^{-1}$ is a series satisfying $2^{-1} + 2^{-1} = 1$.
+Note that in the $\mathbb{Q}_p$, $2^{-1}$ is a series satisfying $2^{-1} + 2^{-1} = 1$.
 Because $2^{-1}$ is a \padic integer, $2^{-1} \in R$ and is fixed under the involution.
 Thus $d = 2^{-1}$.
 Using $h$ as defined in \cref{ex2.2}, pick $u = v_1 2^{-1}$.
@@ -82,24 +106,29 @@ Then $h(u, v_1) = 2^{-1}$ and $h(u, v_i) = 0$ for $i \ne 1$, as desired.
 % Lemma 2.2
 \begin{lemma}\label{lemma2.2}
 $V$ has an orthogonal basis $u_1, u_2, \dotsc u_m$.
-Any such basis satisfies $h(u_i, u_i) \in R^*$.
+Any such basis satisfies $h(u_i, u_i) \in \Rstar$.
 \end{lemma}
 \begin{proof}
 Prove with induction on $m$.
 Assume that $m = 1$.
-By \cref{lemma2.1}, there exists $u \in V$ such that $h(u,u) \in R^*$.
-Then $u = v_1a_1$ for some $a_1 \in A^*$, and $h(u,u) = h(v_1a_1, v_1a_1) = a_1^*h(v_1,v_1)a_1 \in R*$ implying that $h(v_1, v_1) \in R^*$.
+By \cref{lemma2.1}, there exists $u \in V$ such that $h(u,u) \in \Rstar$.
+Then $u = v_1a_1$ for some $a_1 \in \Astar$, and $h(u,u) = h(v_1a_1, v_1a_1) = a_1^*h(v_1,v_1)a_1 \in \Rstar$ implying that $h(v_1, v_1) \in \Rstar$.
 Now assume that $m > 1$ and that the hypothesis holds for $m - 1$.
-Once again, there exists $u \in V$ such that $h(u,u) \in R^*$.
+Once again, there exists $u \in V$ such that $h(u,u) \in \Rstar$.
 Then $u = v_1a_1 + \dotsb + v_m a_m$ with $a_i \in A$.
-If all $a_i \in \mathfrak{r}$, then $h(u,u) \in \mathfrak{m}$, a contradiction.
+If all $a_i \in \mathfrak{r}$, then using the properties of $h$:
+\[
+h(u,u) = \sum_{i=1}^m \sum_{j=1}^m a_i^* h(v_i, v_j) a_j
+\]
+and each term of this sum is an element of $\frakr$.
+Because $\frakr$ is an ideal, $h(u,u) \in \frakr$ implying that $h(u,u) \in \frakr \cap R = \frakm$, a contradiction.
 Without loss of generality, assume that $a_1 \not\in \mathfrak{r}$.
 Then if $u_1 = v_1 a_1$, the set $\{u_1, v_2, \dotsc, v_m\}$ is a basis of $V$.
 For $1 < i \le m$, set
 \[
 u_i = v_i - u_1[h(u_1,v_i)/h(u_1, u_1)]
 \]
-Then $u_1, u_2, \dotsc, u_m$ is a basis of $V$ satisfying $h(u_1, u_i) = 0$ for $1 < i \le m$.
+Then $u_1, u_2, \dotsc, u_m$ can be shown to be a basis of $V$ satisfying $h(u_1, u_i) = 0$ for $1 < i \le m$.
 Let $V_1 = u_1 A$ and $V_2 = \text{span} \{u_2, \dotsc, u_m\}$.
 Then $V = V_1 \perp V_2$ and the restriction of $h$ to $V_2$ induces an isomorphism $V_2 \to V_2^*$.
 Applying the inductive hypothesis to this space completes the proof.
@@ -109,14 +138,15 @@ Applying the inductive hypothesis to this space completes the proof.
 \begin{lemma}\label{lemma2.3}
 \begin{description}
 % Come back to this to clean up the latex
-\item{(a)} Suppose $u_1, \dotsc, u_s \in V$ are orthogonal and satisfy $h(u_i, u_i) \in R^*$.
+\item{(a)} Suppose $u_1, \dotsc, u_s \in V$ are orthogonal and satisfy $h(u_i, u_i) \in \Rstar$.
 Then $u_1, \dotsc , u_s \in V$ can be extended to an orthogonal basis of $V$ with the same property.
 \item{(b)} If $V_1$ is a submodule of $V$ such that the restriction of $h$ to $V_1$ is non-degenerate there is another such submodule $V_2$ of $V$ such that $V = V_1 \perp V_2$.
 \end{description}
 \end{lemma}
 \begin{proof}
 (a) Because $\{v_1, \dotsc, v_m \}$ is a basis of $v$, $u_1 = v_1 a_1 + \dotsb + v_m a_m$ for some $a_i \in A$.
-Since $h(u_1, u_1) \in R^*$ (by \cref{lemma2.1}), one of the scalars must be a unit. Without loss of generality, assume $a_1 \in A*$.
+Since $h(u_1, u_1) \in \Rstar$ (by hypothesis), one of the scalars must be a unit (see proof of \cref{lemma2.2}).
+Without loss of generality, assume $a_1 \in \Astar$.
 Thus $u_1, v_2, \dotsc, v_m$ is a basis of $V$.
 Suppose $1 \le t \le s$ and the list $u_1, \dotsc, u_t, v_{t+1}, \dotsc, v_m$ is a basis of $V$.
 Then 
@@ -129,7 +159,7 @@ Then for every $i \le t$,
 \[
 0 = h(u_i, u_{t+1}) = h(u_i, u_i) b_i + h(u_i, v_{t+1})b_{t+1} + \dotsb + h(u_i, v_m) b_m
 \]
-implying that $b_i \in \mathfrak{r}$ for all $1 \le i \le t$, contradicting the assumption that $h(u_{t+1}, u_{t+1}) \in R^*$.
+implying that $b_i \in \mathfrak{r}$ for all $1 \le i \le t$, contradicting the assumption that $h(u_{t+1}, u_{t+1}) \in \Rstar$.
 Thus at least one of $b_{t+1}, \dotsc,b_m$ is a unit (assume $b_{t+1}$ and $u_1, \dotsc u_t, u_{t+1}, v_{t+2}, \dotsc, v_m$ is a basis of $V$.
 
 This process can be repeated to extend $u_1, \dotsc, u_s$ to a basis $u_1, \dotsc, u_s, u_{s+1}, \dotsc u_m$ of $V$.
@@ -138,15 +168,19 @@ For $s < i \le m$, let
 z_i = u_i - ([u_1h(u_1, u_i)/h(u_1, u_1)] + \dotsb + u_s h(u_s, u_i) / h(u_s, u_s)].
 \]
 Then $u_1, \dotsc, u_s, z_1, \dotsc, z_{m-s}$ is a basis of $V$ satisfying $h(u_i, z_j) = 0$.
-If follows that the restriction of $h$ to $M = \text{span} \{z_1, \dotsc, z_{m-s}\}$ is non-degenerate and by \cref{lemma2.2} that $M$ has an orthogonal basis with $h(z_i, z_i) \in R^*$ for any $i \le m - s$.
+If follows that the restriction of $h$ to $M = \text{span} \{z_1, \dotsc, z_{m-s}\}$ is non-degenerate and by \cref{lemma2.2} that $M$ has an orthogonal basis with $h(z_i, z_i) \in \Rstar$ for any $i \le m - s$.
 
 (b) Follows from (a) and \cref{lemma2.2}
 \end{proof}
 
+Given a set $U = \{u_1, \dotsc, u_s\} \subset V$, for $s \le m$, the \textbf{Gram matrix} $H$ of the set $U$ with respect to $h$
+is defined by $H_{ij} = h(u_i, u_j)$.
+If $U$ is a basis, then for any $u, v \in V$, $h(u,v) = u^*Hv$, where $u^*$ is the transpose of $u$ under $*$.
+
 % Lemma 2.4
 \begin{lemma}\label{lemma2.4}
-Let $u_1, \dotsc u_s \in V$, with corresponding Gram matrix $M \in M_s(A)$, defined by $M_{ij} = h(u_i, u_j)$.
-If $M \in GL_m(A)$, then $u_1, \dotsc, u_s$ are linearly independent.
+Let $u_1, \dotsc u_s \in V$, with corresponding Gram matrix $H \in M_s(A)$, defined by $H_{ij} = h(u_i, u_j)$.
+If $H \in GL_m(A)$, then $u_1, \dotsc, u_s$ are linearly independent.
 \end{lemma}
 \begin{proof}
 Suppose $a_1, \dotsc, a_s$ satisfy $u_1 a_1 + \dotsb + u_sa_s = 0$.
@@ -156,7 +190,7 @@ Then for $1 \le i \le s$
 \]
 implying that 
 \[
-M \left( \begin{array}{c}
+H \left( \begin{array}{c}
 a_1 \\
 \vdots \\
 c_1
@@ -168,5 +202,5 @@ c_1
 \end{array}
 \right).
 \]
-Since $M$ is invertible, the desired result follows.
+Since $H$ is invertible, the desired result follows.
 \end{proof}
