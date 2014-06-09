@@ -9,7 +9,7 @@ and relationships between norm maps and hermitian geometry.
 
 \subsection{Basics of Local Rings}
 
-This introduction gives a brief discussion of local fields and the construction of a local ring $A$ from a local field $K$.
+This introduction gives a brief discussion of local fields and the construction of a local ring from a local field.
 First, some definitions:
 
 \begin{itemize}
@@ -48,24 +48,24 @@ Using this norm, every element $a$ of the form
 \[
 a = \sum_{i=k}^\infty a_i p_i \;\;\; (k \text{ not necessarily positive})
 \]
-can be shown to be a field, known as the \padic numbers (denoted $K$ for the remainder of the section).
-The standard integers $\mathbb{Z} \subset K$ form a ring of integers, denoted $\mathcal{O}$, 
-with maximal ideal $(p)$ and residue field $F_p = \mathcal{O}/\mathfrak{p}$ of characteristic $p$.
+can be shown to be a field, known as the \padic numbers (denoted $\mathbb{Q}_p$ for the remainder of the section).
+The standard integers $\mathbb{Z} \subset \mathbb{Q}_p$ form a ring of integers, denoted $\mathcal{O}$, 
+with maximal ideal $(p)$ and residue field $\mathbb{F}_p = \mathcal{O}/(p)$ of characteristic $p$.
 Unlike the standard integers, elements of $\mathcal{O} \backslash (p)$ are invertible (see \cite{katok} for an explanation).
 
-Define $F = K[\sqrt{p}]$.
+Define $F = \mathbb{Q}_p [\sqrt{p}]$.
 Depending on $p \mod 4$, the ring of integers of $F$ is slightly different (see \cite{milneANT} or \cite{samuel} for a more detailed discussion).
 Define
 \[
 \omega = \begin{cases}
 \sqrt{p} &\text{ if } p \equiv 2,3 \pmod{4}\\
-\frac{1 + \sqrt{p}}{2} &\text{ if } p \equiv 1 \pmod{4}
+\frac{1 + \sqrt{p}}{2} &\text{ if } p \equiv 1 \pmod{4};
 \end{cases}
 \]
-Then the ring of integers $\mathcal{R} = \mathcal{O}[\omega]$.
+then the ring of integers of $\mathbb{Q}_p$ is $\mathcal{R} = \mathcal{O}[\omega]$.
 Then $\mathcal{R}$ is a free $\mathcal{O}$-module of rank $2$.
-$\mathcal{R}$ is a principle ideal domain with a unique prime element $\omega$ (up to associates), and $\mathcal{R}/(\omega) \cong F_p$.
-There is an involution of $F$ defined by $a + b \omega \mapsto a - b \omega$ that fixes $K$, with $\mathcal{R}$ invariant under this involution.
+$\mathcal{R}$ is a principle ideal domain with a unique prime element $\omega$ (up to associates), and $\mathcal{R}/(\omega) \cong \mathbb{F}_p$.
+There is an involution of $F$ defined by $a + b \omega \mapsto a - b \omega$ that fixes $\mathbb{Q}_p$, with $\mathcal{R}$ invariant under this involution.
 Given $\ell \ge 1$, let $A = \mathcal{R} / (\omega)^{2\ell}$.
 Then $A$ is a finite, commutative, principal ideal ring, with an involution inherited from $\mathcal{R}$.
 $A$ is also a local ring, a concept that will be introduced in detail in the next section.
