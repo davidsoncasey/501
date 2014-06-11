@@ -1,0 +1,338 @@
+\documentclass[11pt]{article}
+\usepackage{project501}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+\textsc{\LARGE Portland State University}\\[1.5cm]
+
+\textsc{\Large Math 501 Project}\\[0.5cm]
+
+% Title
+\hrule ~\\[0.4cm]
+{ \large \bfseries Properties of Hermitian Forms on Modules over Local Rings \\ }
+{ \bfseries A short presentation \\[0.4cm] }
+
+\hrule ~\\[0.75cm]
+
+\begin{center}
+\emph{Author:}\\
+Casey \textsc{Davidson}\\[1cm]
+
+\emph{Supervisor:}\\
+Dr.~Joyce \textsc{O'Halloran}\\[1cm]
+
+\emph{Second Reader:}\\
+Dr.~Derek \textsc{Garton}
+\end{center}
+
+\vfill
+
+% Bottom of the page
+{\large \today}
+
+\end{center}
+\end{titlepage}
+
+\section*{Local Fields}
+\subsection*{An Introduction to Algebraic Structures}
+
+% Definition of a group
+\begin{definition*}
+A \textbf{group} is a nonempty set $G$ equipped with a binary operation $+$ on $G$ such that:
+\begin{enumerate}
+\item $+$ is associative: $(a + b) + c = a + (b + c)$ for all $a, b, c \in G$.
+\item There exists an element $0_G$ such that $a + 0_G = 0_G + a = a$ for all $a \in G$. 
+This is known as the \textbf{additive identity}.
+\item For every $a \in G$, there exists an element $-a$ such that $-a + a = a + (-a) = 0_G$.
+This is known as the \textbf{inverse element}.
+\end{enumerate}
+If, additionally, $a + b = b + a$ for all $a, b \in G$, then the $G$ is an \textbf{abelian group}.
+\end{definition*}
+
+% Definition of a ring
+\begin{definition*}
+A \textbf{ring} is a nonempty set $R$, equipped with two binary operations, $+$ and $\cdot$ such that:
+\begin{enumerate}
+\item $(R, +)$ is an abelian group, with identity element $0_R$.
+\item $a \cdot b$ (denoted $ab$) is associative. That is, for all $a, b, c \in R$, $(ab)c = a(bc)$.
+\item $a(b + c) = ab + ac$ and $(a + b)c = ac + bc$ (distributive property of multiplication).
+\end{enumerate}
+If $ab = ba$ for all $a, b \in R$, then $R$ is said to be \textbf{commutative}.
+If there exist an element $1_R$ such that $a 1_R = 1_R a = a$ for all $a$, then $1_R$ is the \textbf{multiplicative identity}
+and $R$ is said to be a \textbf{ring with identity}
+\end{definition*}
+\begin{example*}
+The integers $\mathbb{Z} = \{\dotsc -2, -1, 0, 1, 2, \dotsc \}$ are a commutative ring with identity, with the standard operations of addition and multiplication.
+\end{example*}
+
+% Definition of an involution
+\begin{definition*}
+Let $R$ and $S$ be rings.
+A mapping $\phi: R \to S$ is said to be a \textbf{ring homomorphism} provided that:
+\begin{enumerate}
+\item $\phi(a + b) = \phi(a) + \phi(b)$
+\item $\phi(ab) = \phi(a) \phi(b)$
+\end{enumerate}
+for all $a, b \in R$.
+An anti-homomorphism $\sigma: R \to R$ is a mapping such that addition is preserved as with a homomorphism, but $\sigma(ab) = \sigma(b) \sigma(a)$.
+A bijective homomorphism is an \textbf{isomorphism}, and an isomorphism from $R$ onto itself is an \textbf{automorphism}.
+An \textbf{anti-automorphism} is defined analogously.
+An anti-automorphism $*: R \to R: r \mapsto r^*$ for $r \in R$ is an \textbf{involution} if $(r^*)^* = r$.
+\end{definition*}
+
+% Definition of a field
+\begin{definition*}
+If $a$ is an element of a ring $F$ such that there exists an element $a^{-1}$ where $a a^{-1} = a^{-1}a = 1_F$, then $A$ is said to be invertible.
+If every element of $F$ is invertible, and $1_F \ne 0_F$, then $F$ is called a \textbf{division ring}.
+A \textbf{field} is a commutative division ring.
+\end{definition*}
+\begin{example*}
+The rational numbers $\mathbb{Q}$ and the real numbers $\mathbb{R}$ are fields.
+\end{example*}
+
+\subsection*{Local Fields}
+A local field is a special case of a field where the algebraic properties allow it to be equipped with an absolute value function, and the field is complete and locally compact with respect to this function.
+\begin{definition*}
+Let $A$ be a ring, and $K$ be the field of fractions of $A$.
+A function $\nu: K \to \mathbb{Z}$ is a \textbf{discrete valuation} provided that for $x, y \in K$:
+\begin{enumerate}
+\item $\nu(xy) = \nu(x) + \nu(y)$
+\item $\nu(x + y) \ge \inf\{\nu(x), \nu(y)\}$
+\end{enumerate}
+By convention, $\nu(0) = \infty$.
+Now let $0 \le a \le 1$ and define a function $\|\cdot \|: K \to \mathbb{R}$ by
+\[
+\|x\| = \begin{cases}
+a^{\nu(x)} &\text{ if } x \ne 0\\
+0 &\text{ if } x = 0.
+\end{cases}
+\]
+Then $\| \cdot \|$ is an \textbf{absolute value} on $K$.
+
+If $p \in A$ is a unique irreducible element (up to multiplication by a unit), then each element $a \in K$ 
+can be written uniquely in the form $a = p^n b$, where $b$ is invertible.
+Define $\nu_p: K \to \mathbb{R}$ by $\nu_p(a) = n$.
+Then $\nu_p$ is a discrete valuation.
+Taking $a = \frac{1}{p}$, $\| \cdot \|$ is the absolute value defined with respect to $\nu_p$.
+Then if $K$ is complete with respect to this absolute value, and the residue field $A/(p)$ is finite, $K$ is locally compact.
+In this case, we say that $K$ is a \textbf{local field}. 
+See \citet{serre} for a more in depth exploration of the relationship between discrete valuations and local fields.
+The absolute value is called \textbf{archimedean} if for any $x \in K$, there exists an integer $n \in \mathbb{N}$ such that 
+$\|nx\| > 1$.
+If this property is not met, then $\|\cdot \|$ is \textbf{non-archimedean}.
+\end{definition*}
+\newpage
+
+% P-adic numbers
+\subsection*{The P-adic Numbers}
+\begin{example*}
+Let $p \ge 2$ be a prime.
+Consider the representations of the integers $\mathbb{Z}$ base $p$.
+That is, for any integer $a$, $a$ can be uniquely expressed as a sum
+\[
+a = \sum_{i=0}^n a_i p^i
+\]
+where $0 \le a_i \le p - 1$.
+The notation $a = \dotsc a_3 a_2 a_1 a_0$ is equivalent.
+
+
+Let $\nu_p$ be the discrete valuation with respect to $p$,
+and $\|\cdot \|_p$ be the corresponding absolute value, taking $a$ as $\frac{1}{p}$.
+Then for any integer $a$, $\|a\|_p = \|a_0\|_p$.
+If $\|a_0\| = 1$, then $a$ is invertible, and $a^{-1}$ is an integer as well, an infinite sequence to to left.
+The integers with this representation are the \textbf{p-adic} integers, and are a ring with unique prime element $p$, up to multiplication by a units.
+
+Now expand these series to the form
+\[
+a = \sum_{i = -k}^\infty a_i p^i
+\]
+where $k > - \infty$ and $0 \le a_i \le p - 1$.
+These elements form a field, known as the \padic numbers and denoted $\mathbb{Q}_p$.
+Because $Z/(p)$ is finite and $\mathbb{Q}_p$ is complete with respect to the absolute value $\|\cdot \|_p$, $\mathbb{Q}_p$ is a local field.
+
+\end{example*}
+\newpage
+
+\section*{Local Rings}
+\begin{definition*}
+Let $R$ be a ring.
+A subset $J \subset R$ is a left ideal if:
+\begin{enumerate}
+\item $a + b \in J$ for all $a, b \in J$
+\item $ra \in J$ for $a, \in J$ and $r \in R$.
+\end{enumerate}
+An analogous definition holds for a right ideal.
+If $J$ is both a left and right ideal, then $J$ is a two-sided ideal.
+An ideal $J$ is nontrivial if $J \ne \{0\}$, and is proper if $J \ne R$.
+A nontrivial ideal is \textbf{maximal} if it is not properly contained in a any proper ideal.
+\end{definition*} 
+
+\begin{example*}
+In the \padic integers as defined previously, $(p)$ is a maximal ideal.
+\end{example*}
+
+\begin{definition*}
+A ring $R$ is said to be \textbf{local} if it has a unique maximal left or unique maximal right ideal.
+The \textbf{Jacobson radical} of $R$, denoted $J(R)$ is the intersection of all maximal left (right) ideals.
+In a local ring, $J(R)$ coincides with the unique maximal left ideal and unique maximal right ideal, showing that the maximal ideal is two sided.
+In a local ring, $J(R)$ contains all nonunits, so $A/J(R)$ is a division ring (meaning that every element of $A/R$ is invertible).
+\end{definition*}
+
+\subsection*{Constructing a local ring from the \padic numbers}
+\begin{example*}
+For simplicity, assume that $p \equiv 3 \mod{4}$.
+While a similar construction can be done for $p \equiv 1 \mod{4}$, it is slightly simpler when $p \equiv 4 \mod{4}$.
+The standard integers $\Z \subset \Qp$ form a ring of integers, with maximal ideal $(p)$.
+Define $F = \Qp[\sqrt{p}]$.
+Then $F$ has a ring of integers $\mathcal{R} = \Z[\sqrt{p}]$.
+Then $\mathcal{R}$ has elements of the form $a + b\sqrt{p}$ for $a, b \in \Z$, and an involution $a + b \sqrt{p} \mapsto a - b \sqrt{p}$.
+$\mathcal{R}$ is a principle ideal domain with a unique prime element $\sqrt{p}$ (up to associates),
+and $\mathcal{R} / (\sqrt{p}) \cong \Z / (p) = \Z_p$
+For $\ell \ge 1$, define $A_p = \mathcal{R} / (\sqrt{p})^{2\ell}$.
+Then $A_p$ is a finite, commutative, principle ideal ring.
+Additionally, all ideals of $a$ are of the form $(p)^k$, $1 \le k \le 2 \ell$, and $(\sqrt{p})$ is a unique maximal ideal.
+Thus $A_p$ is a local ring, that inherits an involution for $\mathcal{R}$.
+This construction can be used on any non-archimedian local field, using the irreducible element of the local field from which the valuation is defined.
+\end{example*}
+\newpage
+
+\section*{Modules and Hermitian Forms}
+\begin{definition*}
+Let $R$ be a ring.
+A set $V$ is a right $R$-module if $V$ is an abelian group and there exists a function $V \times R \to V$
+(denoted $ur$) such that for $r, s \in R$ and $u, v \in V$:
+\begin{enumerate}
+\item $(u + v)r = ur + vr$
+\item $u(r + s) = ur + us$
+\item $(us)r = u(rs)$
+\end{enumerate}
+A right module is defined analogously, with multiplication taking the form $ur$.
+A set subset $U$ of a right $R$-module $V$ is \textbf{linearly independent} if for $u_1, \dotsc, u_n \in U$ and $r_i \in R$,
+$u_1 r_1 + \dotsc u_n r_n = 0$ implies that each $r_i$ is zero.
+If $V$ is generated by $U$, then $U$ spans $V$.
+A \textbf{basis} is a linearly independent spanning set.
+Consequently, if $R$ has identity and $v 1_R = v$ for all $v \in V$, then each $v$ has a unique representation
+\[
+v = u_1 x_1 + \dotsb + u_n x_n
+\]
+for $x_i \in R$.
+\end{definition*}
+
+\begin{example*}
+The standard coordinate system $\mathbb{R}^2$ is a module over the real numbers, with basis $(1, 0)$ and $(0, 1)$.
+\end{example*}
+
+\begin{definition*}
+Let $A$ be a ring equipped with an involution $*$.
+Let $V$ be a right $A$-module. 
+A function $h: V \times V \to R$ is a \textbf{Hermitian form} if:
+\begin{enumerate}
+\item $h$ is linear in the second variable.
+That is, for $u, v, w \in V$ and $a \in A$, $h(u, v + w) = h(u, v) + h(u, w)$ and $h(u, va) = h(u, v)a$
+\item $h(u,v) = h(v, u)^*$.
+\end{enumerate}
+Combining these facts shows that $h(ua, v) = a^* h(u, v)$ for all $u, v \in V$ and $a \in A$.
+Also, $h(u,u) = h(u,u)^*$ and $h(u,u)$ is fixed under $*$.
+
+Now consider the dual space $V^*$. Define an operation $V^* \times A \to V^*$ by $(\alpha a)(v) = a^* \alpha(v)$ where $\alpha \in V^*, a \in A, v \in V$.
+Under this operation, $V^*$ is a right $A$-module.
+Now we can define a homomorphism of right $A$-modules $\gamma_h: V \to V^*$ associated with $h$ given by $\gamma_h(u) = h(u, -)$.
+$h$ is \textbf{nondegenerate} if $\gamma_h$ is an isomorphism.
+\end{definition*}
+\begin{example*}
+Continue with $A_p$ as defined previously and assume that $V$ is a right $A_p$-module with a basis $\{v_1, \dotsc, v_m\}$.
+let $a = v_1 a_1 + \dotsb v_m a_m$ and $b = v_1 b_1 + \dotsb + v_m b_m$ with $a_i, b_i \in A$ for $1 \le i \le m$.
+Define $h: V \times V \to A$ by $h(a, b) = a_1^* b_1 + \dotsc + a_m^* b_m$.
+This is a Hermitian form, and can be verified to be non-degenerate.
+\end{example*}
+
+\newpage
+
+\section*{Classification of Hermitian Forms}
+\begin{definition*}
+For this section, the following objects will be fixed:
+\begin{itemize}
+\item Let $A$ be a local ring with identity.
+
+\item Let $\mathfrak{r}$ be the Jacobson radical of $A$. Because $A$ is local, $\mathfrak{r}$ is maximal, two-sided, and contains all non-units of $A$.
+
+\item Let $\Astar$ denote the set of all units of $A$.
+
+\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$. 
+
+\item Note that $R$ is local as well, with maximal ideal $\frakm = R \cap \mathfrak{r}$. 
+This is because any element of $R$ that is not in $\frakm$ is invertible by definition, and cannot be contained in any proper ideal.
+
+\item Let $\Rstar$ denote the set of all units of $R$.
+
+\item Let $Q: A \to R: a \mapsto aa^*$ denote the norm-map.
+
+\item Let $V$ be a right $A$-module of dimension $m$.
+
+\item Let $h: V \times V \to A$ be a Hermitian form.
+\end{itemize}
+
+A vector $v \in V$ is said to be \textbf{primitive} if $v \not\in V \frakr = \{wr : w \in V, r \in \frakr \}$.
+This is equivalent to $v$ being an element of some basis.
+If there exists a primitive $v$ such that $h(v,v) = 0$, then $h$ is \textbf{isotropic}.
+\end{definition*}
+
+% Lemma 3.1
+\begin{lemma*}
+Suppose $h$ is isotropic. Then, given any $r \in R$ there is a primitive vector $v$ satisfying $h(v,v) = r$.
+\end{lemma*}
+
+\begin{proposition*}
+The division ring $\Amodr$ is commutative. Moreover,
+\begin{description}
+\item[(a)] If the involution that $*$ induces on $\Amodr$ is the identity then $Q$ is not surjective and $\Amodr \cong F_q$.
+\item[(b)] If the involution that $*$ induces on $\Amodr$ is not the identity then $Q$ is surjective and $\Amodr \cong F_{q^2}$.
+\end{description}
+\end{proposition*}
+
+\begin{example*}
+Recall that in our example, $\frakr = (\sqrt{p})$ and $\frakm = (p)$.
+Thus $A/\frakr \cong R/\frakm \cong F_p$.
+Furthermore, the involution $*$ induces on $\Amodr$ is the identity.
+Pick $c \in F_p \backslash F_p^2$.
+Then $c$ cannot be in the image of $*$, because for any $a + b\sqrt{p} \in A$,
+$c \not\equiv a^2 \mod p$, and therefore $c \ne a^2 - b^2 p$.
+Thus $Q$ is not surjective.
+\end{example*}
+
+% Theorem 3.5
+\begin{theorem*}
+There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
+\begin{align*}
+  h(v_1, v_1) &= \dotsb = h(v_{m-1}, v_{m-1}) = 1 \text{ and } \\
+  h(v_m, v_m) &= 1 \text{ if } Q(\Astar) = \Rstar \\
+  h(v_m, v_m) &\in \{1, \varepsilon \} \text{ if } Q(\Astar) = {\Rstar}^2
+\end{align*}
+\end{theorem*}
+
+\begin{definition*}
+Given $r_1, \dotsc, r_m \in \Rstar$ we say that $h$ is of type $\{r_1, \dotsc, r_m \}$ if there is a basis $B$ of $V$ relative to which $h$ has matrix $\text{diag} \{r_1, \dotsc, r_m \}$.
+Note that because these matrices contain only elements of $\Rstar$, which is commutative, the notion of a determinant is well defined.
+\end{definition*}
+
+\begin{lemma*}
+When $m$ is even then $h$ is of type $\{1, -1, \dotsc, 1, -1 \}$ (define this as kind I) or $\{1, -1,\dotsc, 1, -\varep \}$ (kind II).
+When $m$ is odd then $h$ is of type $\{1, -1, \dotsc, 1, -1, -1 \}$ (kind I) or of type $\{1, -1, \dotsc, 1, -1, -\varep \}$ (kind II).
+\end{lemma*}
+
+
+
+
+
+
+\newpage
+\nocite{hungerford}
+\nocite{katok}
+\bibliographystyle{plainnat}
+\bibliography{501}
+
+
+
+
+\end{document}
