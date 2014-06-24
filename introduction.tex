@@ -1,6 +1,6 @@
 \section{Introduction}
 
-For my 501 project, I'll be working with the paper ``Unitary Groups Over Local Rings"\cite{cruickshank}.
+For my 501 project, I worked with with the paper ``Unitary Groups Over Local Rings"\cite{cruickshank}.
 The paper contains a discussion of hermitian forms and unitary groups over a local ring.
 In my project, I'll provide an introduction to the properties of local rings, and a detailed discussion of hermitian forms
 defined on modules over a local ring.
@@ -13,15 +13,37 @@ This introduction gives a brief discussion of local fields and the construction 
 First, some definitions:
 
 \begin{itemize}
+\item Let $R$ be a ring and $K$ be the field of fractions for $R$.
+A function $\nu: K \to \mathbb{Z}$ is a \textbf{discrete valuation} provided that for $x, y \in K$:
+\begin{enumerate}
+\item $\nu(xy) = \nu(x) + \nu(y)$
+\item $\nu(x + y) \ge \inf\{\nu(x), \nu(y)\}$
+\end{enumerate}
+By convention, $\nu(0) = \infty$.
+Now let $0 \le a \le 1$ and define a function $\|\cdot \|: K \to \mathbb{R}$ by
+\[
+\|x\| = \begin{cases}
+a^{\nu(x)} &\text{ if } x \ne 0\\
+0 &\text{ if } x = 0.
+\end{cases}
+\]
+Then $\| \cdot \|$ is an absolute value on $K$.
+
+If $p \in R$ is a unique irreducible element (up to multiplication by a unit), then each element $a \in K$ 
+can be written uniquely in the form $a = p^n b$, where $b$ is invertible.
+Define $\nu_p: K \to \mathbb{R}$ by $\nu_p(a) = n$.
+Then $\nu_p$ is a discrete valuation.
+Taking $a = \frac{1}{p}$, $\| \cdot \|$ is the absolute value defined with respect to $\nu_p$.
+If $K$ is complete with respect to this absolute value, then we say that $K$ is complete with respect to $\nu_p$.
+
 \item A field $K$ is a \textbf{local field} if it is complete with respect to a discrete valuation and a has finite residue field.
 An equivalent definition is that a field is locally compact with respect to a non-discrete topology (see \cite{serre} for a detailed explanation).
-This allows an absolute value function $|\cdot\|$ to be defined.
 The real numbers $\mathbb{R}$ and rational numbers $\mathbb{Q}$ are examples of local fields, with the standard topology and absolute values.
 
-\item A local field $K$ is said to be \textbf{archimidean} if for any element $x \in K$, there exists $n \in \mathbb{N}$ such that $|nx| > 1$.
-A local field is said to be \textbf{non-archimidean} if this property does not hold.
+\item A local field $K$ is said to be \textbf{archimedean} if for any element $x \in K$, there exists $n \in \mathbb{N}$ such that $|nx| > 1$.
+A local field is said to be \textbf{non-archimedean} if this property does not hold.
 
-\item In any field, the \textbf{ring of integers} refers to the set of all integral elements, that is, 
+\item In any field, the \textbf{ring of integers} $\mathcal{O}$ refers to the set of all integral elements, that is, 
 elements that are the root of a monic polynomial with integer coefficients 
 (that is, coefficients from the set $\{z \cdot 1_K : z \in \mathbb{Z} \}$, where $1_k$ is the multiplicative identity of $K$).
 
