@@ -7,7 +7,7 @@ defined on modules over a local ring.
 Several results are presented that investigate properties of such modules, as well as specific properties of hermitian forms on these modules,
 and relationships between norm maps and hermitian geometry.
 
-\subsection{Basics of Local Rings}
+\subsection{Local Fields and the $p$-Adic Numbers}
 
 This introduction gives a brief discussion of local fields and the construction of a local ring from a local field.
 First, some definitions:
@@ -27,14 +27,14 @@ a^{\nu(x)} &\text{ if } x \ne 0\\
 0 &\text{ if } x = 0.
 \end{cases}
 \]
-Then $\| \cdot \|$ is an absolute value on $K$.
+Then $\| \cdot \|$ can be shown the be an absolute value on $K$.
 
 If $p \in R$ is a unique irreducible element (up to multiplication by a unit), then each element $a \in K$ 
 can be written uniquely in the form $a = p^n b$, where $b$ is invertible.
 Define $\nu_p: K \to \mathbb{R}$ by $\nu_p(a) = n$.
 Then $\nu_p$ is a discrete valuation.
-Taking $a = \frac{1}{p}$, $\| \cdot \|$ is the absolute value defined with respect to $\nu_p$.
-If $K$ is complete with respect to this absolute value, then we say that $K$ is complete with respect to $\nu_p$.
+Taking $a = \frac{1}{p}$, $\| \cdot \|_p$ is the absolute value defined with respect to $\nu_p$.
+If $K$ is complete with respect to the topology induced by $\| \cdot \|_p$, then we say that $K$ is complete with respect to $\nu_p$.
 
 \item A field $K$ is a \textbf{local field} if it is complete with respect to a discrete valuation and a has finite residue field.
 An equivalent definition is that a field is locally compact with respect to a non-discrete topology (see \cite{serre} for a detailed explanation).
@@ -51,29 +51,21 @@ elements that are the root of a monic polynomial with integer coefficients
 if it satisfies $(a^*)^* = a$ for all $a \in A$ and $(ab)^* = b^* a^*$ for $a, b \in A$.
 \end{itemize}
 
-Given a prime number $p$, consider the representations of the integers $\mathbb{Z}$ base $p$.
-That is, for any integer $a$, $a$ can be expressed as a sum
+\begin{example}
+Consider the integers $\mathbb{Z}$ with field of fractions $\mathbb{Q}$.
+Let $p \in \mathbb{Z}$ be prime.
+Then $p$ is an irreducible element.
+Let $\nu_p$ be the discrete valuation (as previously defined) with respect to $p$, $\| \cdot \|_p$ be the absolute value derived from $\nu_p$.
+Define $\Qp$ to be the completion of $\Q$ under $\|\cdot \|_p$.
+Then it can be shown that each $a \in Q_p$ can be written uniquely in the form 
 \[
-a = \sum_{i=0}^n a_i p^i
+a = \sum_{i=k}^\infty a_i p^i \;\;\; (k \text{ not necessarily positive}).
 \]
-where $0 \le a_i \le p - 1$.
-The \padic norm, $|\cdot|_p$, can be applied to this representation, defined by
-\[
-|x|_p = \begin{cases}
-p^{-n_p(x)} &\text{ if } x \ne 0\\
-0 &\text{ if } x = 0
-\end{cases}
-\]
-where $n_p(x) = \max \{n: p^n | x \}$ if $p | x$ and $n_p(x) = 1$ if $p \nmid x$.
-This can be shown to satisfy the definition of a norm.
-Using this norm, every element $a$ of the form
-\[
-a = \sum_{i=k}^\infty a_i p_i \;\;\; (k \text{ not necessarily positive})
-\]
-can be shown to be a field, known as the \padic numbers (denoted $\mathbb{Q}_p$ for the remainder of the section).
+$\Qp$ is known as the \textbf{p-adic numbers}.
 The standard integers $\mathbb{Z} \subset \mathbb{Q}_p$ form a ring of integers, denoted $\mathcal{O}$, 
 with maximal ideal $(p)$ and residue field $\mathbb{F}_p = \mathcal{O}/(p)$ of characteristic $p$.
 Unlike the standard integers, elements of $\mathcal{O} \backslash (p)$ are invertible (see \cite{katok} for an explanation).
+Thus $\Qp$ is a complete with respect to $\|\cdot \|_p$ and has a finite residue field, and is thus a (non-archemedian) local field.
 
 Define $F = \mathbb{Q}_p [\sqrt{p}]$.
 Depending on $p \mod 4$, the ring of integers of $F$ is slightly different (see \cite{milneANT} or \cite{samuel} for a more detailed discussion).
@@ -91,5 +83,4 @@ There is an involution of $F$ defined by $a + b \omega \mapsto a - b \omega$ tha
 Given $\ell \ge 1$, let $A = \mathcal{R} / (\omega)^{2\ell}$.
 Then $A$ is a finite, commutative, principal ideal ring, with an involution inherited from $\mathcal{R}$.
 $A$ is also a local ring, a concept that will be introduced in detail in the next section.
-
-
+\end{example}

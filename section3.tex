@@ -1,5 +1,8 @@
 \section{Classification of Hermitian Forms}
 
+Let $B$ be a subset of $A$.
+Define $VB = \{vb : v \in V, b \in B \}$.
+If $B$ is an ideal, then $VB$ is a submodule of $V$.
 A vector $v \in V$ is said to be \textbf{primitive} if $v \not\in V \frakr$.
 This is equivalent to saying that $v$ belongs to a basis of $V$.
 We say that $h$ is \textbf{isotropic} if there is a primitive vector $v \in V$ such that $h(v,v) = 0$.
@@ -27,7 +30,7 @@ h(v,v) &= h(us + w, us + w) \\
 We assume for the remainder of the paper that the squaring map of the $1$-group $1 + \frakm$ is an epimorphism and that $\Rmodm = F_q$
 is a field of finite order $q$ and odd characteristic.
 Thus $[F_q^* : {F_q^*}^2] = 2$. To see this, pick $r \in F_q^* \backslash {F_q^*}^2$.
-Then the minimal polynomial of $x$ is $t^2 - r^2 \in {F_q^*}^2[t]$.
+Then the minimal polynomial of $r$ is $t^2 - r^2 \in {F_q^*}^2[t]$.
 A similar argument shows that $[R^* : {R^*}^2] = 2$.
 For the remainder of the paper, fix an element $\varepsilon \in R^* \backslash {R^*}^2$.
 Since ${R^*}^2 \subseteq Q(A^*)$, we infer $Q(A^*) = R^*$ if $Q$ is surjective and $Q(A^*) = {R^*}^2$ otherwise.
@@ -44,14 +47,16 @@ The division ring $\Amodr$ is commutative. Moreover,
 We begin embedding $\Rmodm$ in $\Amodr$ using the mapping $x + \frakm \mapsto x + \frakr$ for $x \in R$.
 Thus $\Rmodm$ can be viewed as a subfield of $\Amodr$.
 Now let $\circ$ be the involution that $*$ induces on $\Amodr$ by $a + \frakr \mapsto a^* + \frakr$.
+\begin{samepage}
 Let $k = \{a \in \Amodr : a^\circ = a \}$ be the set of all elements of $\Amodr$ that are fixed by $\circ$.
+\end{samepage}
 Then $\Rmodm \subseteq k$ (by definition, $R$ is fixed under $*$).
 Conversely, assume that $a + \frakr \in k$.
 Then $a - a^* \in \frakr$, so
 \[
 a = \frac{a + a^*}{2} + \frac{a - a*}{2} \in R + \frakr
 \]
-and $k \subseteq (R + \frakr)/\frakr = \Rmodm$. Thus $k = R/m$.
+and $k \subseteq (R + \frakr)/\frakr = \Rmodm$. Thus $k = \Rmodm$.
 Consider two cases:
 
 (a) The involution that $*$ induces on $\Amodr$ is the identity: In this case, $\Amodr = k = \Rmodm$ and the norm map $(\Amodr)^* \to (\Rmodm)^*$ (induced by $Q$) is the squaring map of $F_q^*$.
@@ -72,7 +77,7 @@ Then
 \]
 and $e_1 f_1 + f_1 e_1 \in k$.
 Thus $k\langle f_1, e_1 \rangle$ is the $k$-span of $1, f_1, e_1, f_1 e_1$ and $k \langle f_1, e_1 \rangle$ is a finite dimensional division algebra over $k$.
-Thus by Wedderburn's theorem, $k \langle f_1, e_1$ is a field, implying that $f$ and $e$ commute.
+Thus by Wedderburn's theorem, $k \langle f_1, e_1 \rangle$ is a field, implying that $f$ and $e$ commute.
 
 Thus $\Amodr$ is a field, algebraic over $k = \Rmodm$, where every element of $\Amodr \backslash k$ has degree 2 over $k$.
 Since every algebraic extension of $k$ is separable, the primitive element theorem implies that $[\Amodr : k] = 2$.
@@ -129,57 +134,66 @@ Consider two cases:
 \item[Case 1:] $h$ is isotropic. Then \ref{lemma3.1} applies.
 \item[Case 2:] $h$ is non-isotropic.
 \end{description}
-By \cref{lemma2.2}, %Probably want a ref here 
+By \Cref{lemma2.2},
 there is an orthogonal basis $u_1, u_2, \dotsc u_m$ of $V$ such that $h(u_i, u_i) \in \Rstar$.
-Let $a = h(u_1, u_2) \in \Rstar$ and $b = h(u_2, u_2) \in \Rstar$.
-if $t_1, t_2 \in \Rstar$, then $v = u_1 t_1 + u_2 t_2$ is primitive (because it is part of a basis),
+Let $a = h(u_1, u_1) \in \Rstar$ and $b = h(u_2, u_2) \in \Rstar$.
+Let $c = b/a$.
+If $t_1, t_2 \in \Rstar$, then $v = u_1 t_1 + u_2 t_2$ is primitive (because it is part of a basis),
 so
 \[
 0 \ne h(v, v) = a t_1^2 + b t_2^2.
 \]
-Dividing by $a$ and letting $c = b/a \in \Rstar$,
+Dividing by $a$ gives
 \[
-0 \ne t_1^2 + ct^2
+0 \ne t_1^2 + ct_2^2.
 \]
-implying that $-c$ is not a square in $\Rstar$.
+Because the choices of $t_1$ and $t_2$ were arbitrary, $-c$ cannot be a square in $\Rstar$.
+
 Let $S = R[t] / (t^2 + c)$ and $\delta = t + (t^2 + c) \in S$.
 Then $S = R[\delta], \delta^2 = -c$ and every element of $S$ can be uniquely written in the form $t_1 + t_2 \delta$ with $t_1, t_2 \in R$.
 We have an involution $s \mapsto \hat{s}$ defined by $t_1 + t_2 \delta \mapsto t_1 - t_2 \delta$,
-whose corresponding norm map $J: S^* \to \Rstar$ given by $s \mapsto s \hat{s}$, or $t_1 + t_2 \delta \mapsto t_1^2 + c t_2^2$.
+whose corresponding norm map $J: S \to R$ is given by $s \mapsto s \hat{s}$, or $t_1 + t_2 \delta \mapsto t_1^2 + c t_2^2$.
+Note that for $s \in S^\times$, $J(s) \in \Rstar$.
+Then for an element $z \in S$, if $J(z) \in \frakm$, $z \not\in S^\times$.
 
 We claim that $S$ is local with maximal ideal $S\frakm$.
-To show this, we want to show that any non-invertible element of $S$ is contained in $S\frakm$.
+To show this, we want to show that every non-invertible element of $S$ is contained in $S\frakm$.
+To do this, we'll show that for $s \in S$, $J(s) \not\in \frakm$ if $s \not\in S \frakm$.
 Let $t_1, t_2 \in R$, not both in $\frakm$, and consider $J(t_1 + t_2 \delta) = t_1^2 + c t_2^2$.
 This breaks into two cases:
 \begin{description}
 \item[Case 1:] One of $t_1, t_2 \in \frakm$.
-Then if $t_1^2 + ct_2^2 \in \frakm$, $t_1^2 = -ct_2^2 + m$ and $ct_2^2 = -t_1^2 - m$ for some $m \in \frakm$.
-Since either $t_1, t_2$ is invertible, this implies that both $t_1, t_2 \in \frakm$, a contradiction.
+Then if $t_1^2 + ct_2^2 \in \frakm$, $t_1^2 = -ct_2^2 + m$ and $ct_2^2 = -t_1^2 + m$ for some $m \in \frakm$.
+This implies that both $t_1, t_2 \in \frakm$, a contradiction.
 Thus $t_1^2 + c t_2^2 \in \Rstar$ and $t_1 + t_2 \delta \in S^*$.
 \item[Case 2:] Both $t_1, t_2 \not\in \frakm$. 
 Suppose that $t_1 + t_2 \delta \not \in S^*$.
 Then $t_1^2 + ct_2^2 = f \in \frakm$, and
 \[
--c = (t_1^{-1})^2(t_1^2 - f) = (t_2^{-1})^2 t_1^2(1 - (t_1^{-1})^2f).
+-c = (t_2^{-1})^2(t_1^2 - f) = (t_2^{-1})^2 t_1^2(1 - (t_1^{-1})^2f).
 \]
-By assumption (because $A$ is a local ring), $1 - (t_1^{-1})^2 f \in R^{*2}$, implying that $-c \in R^{*2}$, a contradiction.
-Thus $t_1 + t_2 \delta \in S^*$.
+Local rings have the property that if $m$ is a nonunit, $1 - m$ must be a unit.
+Then $1 - (t_1^{-1})^2 f \in \Rstar$.
+Using the assumption that the squaring map of $1 + \frakm$ is an epimorphism, we see that $1 - (t_1^{-1})^2 f \in \Rstarsq$,
+implying that $-c \in \Rstarsq$, a contradiction.
+Thus $t_1 + t_2 \delta \in S^\times$.
 \end{description}
 Therefore $S\frakm$ is an ideal of $S$, containing every non-unit, implying that it is maximal and that $S$ is local.
 
-Because $S$ is commutative, $S/S\frakm$ is a field. The imbedding $\Rmodm \to S/S\frakm$ allows us to view $S/S\frakm$ as a vector space over $\Rmodm$,
+Because $S$ is commutative, $S/S\frakm$ is a field. The embedding $\Rmodm \to S/S\frakm$ allows us to view $S/S\frakm$ as a vector space over $\Rmodm$,
 with $\{1 + S\frakm, \delta + S \frakm \}$ as a basis. Thus $S/S\frakm$ is a quadratic extension of $\Rmodm$.
-The involution of $S$ induces the $\Rmodm$-automorphism of $S/S\frakm$ of order 2 and the norm map $J$ induces the norm map $(S/S\frakm)^* \to (R/\frakm)^*$.
+The involution of $S$ induces the $\Rmodm$-automorphism of $S/S\frakm$ of order 2 and the norm map $J$ induces the norm map $(S/S\frakm)^\times \to (R/\frakm)^\times$.
 
 % Try to figure this out in more detail.
 Since $\Rmodm$ is known to be $F_q$, this map is known to be surjective.
 We claim that $J$ is surjective.
 Indeed, pick $e \in \Rstar$.
-Then by the surjectivity of the norm map, there is $s \in S$ and $f \in \frakm$ such that
+Then by the surjectivity of the norm map $Q$, which induces $J$, there is $s \in S$ and $f \in \frakm$ such that
 \[
-j(s) = e + f = e(1 + e^{-1}f).
+J(s) = e + f = e(1 + e^{-1}f).
 \]
-Since $1 + e^{-1} f \in R^{*2}$ (by surjectivity of squaring map of $1 + \frakm$), it follows that $e$ is in the image of $J$, as claimed.
+Since $1 + e^{-1} f \in \Rstarsq$ (by surjectivity of squaring map of $1 + \frakm$), it follows that $e$ is in the image of $J$, as claimed.
+Thus $J$ is surjective.
 % I may want to dig into this in more detail as well.
 
 By the claim there are $t_1, t_2 \in R$ with at least one in $R^*$, such that $t_1^2 + t_2^2 c = r/a$.
@@ -190,6 +204,7 @@ h(v,v) = at_1^2 + bt_2^2 = r.
 This completes the proof.
 \end{proof}
 
+Recall that $\varep$ is an arbitrary fixed element of $\Rstar \backslash \Rstarsq$.
 % Theorem 3.5
 \begin{theorem}\label{theorem3.5}
 There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
@@ -202,7 +217,7 @@ There is an orthogonal basis $v_1, v_2, \dotsc, v_m$ of $V$ satisfying
 
 \begin{proof}
 To prove this, we'll use induction on $m$.
-Assume that $m = 1$. By \cref{lemma2.2}, $V$ has a basis $\{u_1\}$ such that $h(u_1, u_1) \in \Rstar$.
+Assume that $m = 1$. By \Cref{lemma2.2}, $V$ has a basis $\{u_1\}$ such that $h(u_1, u_1) \in \Rstar$.
 If $Q(\Astar) = \Rstar$, then $h(u_1, u_1) = a a^*$ for some $a \in \Astar$.
 Let $v_1 = u_1 a^{-1}$.
 Then
@@ -211,9 +226,9 @@ h(v_1, v_1) = (a^{-1})^* a^{-1} h(u, u) = 1.
 \]
 If $Q(\Astar) = \Rstarsq$, then consider two cases.
 \begin{description}
-\item[Case 1:] $h(u_1, u_1) \in \Rstar* \backslash \Rstarsq$.
+\item[Case 1:] $h(u_1, u_1) \in \Rstarsq$.
 Then there exists $v$ such that $h(v,v) = 1$, as shown.
-\item[Case 2:] $h(u_1, u_1) \in \Rstarsq$.
+\item[Case 2:] $h(u_1, u_1) \in \Rstar \backslash \Rstarsq$.
 Then $h(u_1, u_1) = \varep b$ for some $b \in \Rstarsq$ (note that from earlier result, $[\Rstar : \Rstarsq] = 2$).
 Then $b = r^2$ for some $r \in \Rstar$.
 Let $v = r^{-1} u_1$. Then
@@ -224,25 +239,30 @@ h(v, v) = {(r^{-1})}^2 h(u, u) = b^{-1} \varep b = \varep.
 Taking $v_1 = v$ gives $h(v_1, v_1) \in \{1, \varep\}$.
 
 Now assume that $m > 1$ and that the hypothesis is true for $m - 1$.
-By \cref{prop3.4}, there exists $v_1$ such that $h(v_1, v_1) = 1$.
-Using \cref{lemma2.3}, this can be extended to an orthogonal basis $v_1, u_2, \dotsc, u_m$.
+By \Cref{prop3.4}, there exists $v_1$ such that $h(v_1, v_1) = 1$.
+Using \Cref{lemma2.3}, this can be extended to an orthogonal basis $v_1, u_2, \dotsc, u_m$.
 Let $V' = \text{span} \{u_2, \dotsc, u_m \}$.
 Then $V'$ has dimension $m - 1$ and by the inductive hypothesis there exits is a basis $v_2, \dotsc v_m$ of $V'$.
 Then $\{v_1, v_2, \dotsc, v_m \}$ is a basis of $V$ with the desired property.
 \end{proof}
 
 \begin{example}\label{ex3.3}
-In our example, because $h$ was defined in terms of $v_1, \dotsc, v_m$, this basis will by be orthogonal by the definition of $h$,
+In our example, because $h$ was defined in terms of $v_1, \dotsc, v_m$, this basis will be orthogonal by the definition of $h$,
 and $h(v_i, v_i) = 1$ for all $i$.
 \end{example}
 
-Let $\mathfrak{i}$ be a $*$ invariant ideal of $A$ and let $\overline{A} = A / \mathfrak{i}$.
+Let $\mathfrak{i}$ be a $*$-invariant ideal of $A$ and let $\overline{A} = A / \mathfrak{i}$.
 Then $*$ induces an involution on $\overline{A}$.
-Moreover, $\overline{V} = V / V \mathfrak{i}$ is a free $\overline{A}$ module of rank $m$ and the map $\overline{h}: \overline{V} \times \overline{V} \to \overline{A}$,
-given by $\overline{h}(v + V \mathfrak{i}, w + V \mathfrak{i}) = h(v, w)$ is a non-degenerate hermitian form.
+Moreover, $\overline{V} = V / V \mathfrak{i}$ is a free $\overline{A}$ module of rank $m$.
+Define  $\overline{h}: \overline{V} \times \overline{V} \to \overline{A}$,
+given by $\overline{h}(v + V \mathfrak{i}, w + V \mathfrak{i}) = h(v, w)$.
+$\overline{h}$ can be verified to be well-defined and non-degenerate.
 % I could show this non-degeneracy
 
 Recall that when $A$ is commutative the discriminant of $h$ is the element of $\Rstar / Q(\Astar)$ obtained by taking the determinant of the Gram matrix of $h$ relative to any basis of $V$.
+Thus by \Cref{theorem3.5} the discriminant of $h$ is $1$ or $\varep$.
+Two hermitian forms $h_1$ and $h_2$ are said to be \textbf{equivalent} if there exists an isomorphism $T: V \to V$ such that
+$h_1(v, w) = h_2(Tv, Tw)$ for all $v, w \in V$.
 
 % Corollary 3.6
 \begin{corollary}\label{cor3.6}
@@ -256,7 +276,7 @@ Then the following conditions are equivalent:
 \end{corollary}
 \begin{proof}
 (a) implies (b): Assume that $h_1$ and $h_2$ are equivalent.
-Then there exists some isomorphism $T: V \to V$ (with matrix representation $T$) such that $h_1(v,w) = h_2(Tv, Tw)$ for all $v, w \in V$.
+Then there exists some isomorphism $T: V \to V$ such that $h_1(v,w) = h_2(Tv, Tw)$ for all $v, w \in V$.
 Then
 \[
 \overline{h_1}(v + V \frakr, w + V \frakr) = h_1(v, w) = h_2(Tv, Tw) = \overline{h_2}(Tv + V \frakr, Tw + V \frakr)
@@ -264,25 +284,25 @@ Then
 and $\overline{h_1}$ is equivalent to $\overline{h_2}$.
 
 (b) implies (c): Assume that $v_1 + V \frakr, \dotsc, v_m + V \frakr$ is the orthogonal basis for $\overline{V}$ 
-given in \cref{theorem3.5} and that $\overline{h_1}(v + V\frakr, w + V \frakr) = \overline{h_2}(Tv + V \frakr, Tw + V \frakr)$ 
-for some invertible $T$ and all $v \in V$.
-Then $T v_1 + V \frakr, \dotsc, T v_m + V \frakr$ is a basis; and is orthogonal with respect to $\overline{h_2}$.
-Let $d$ represent the discriminant function.
+given in \Cref{theorem3.5} and that $\overline{h_1}(v + V\frakr, w + V \frakr) = \overline{h_2}(T(v + V \frakr), T(w + V \frakr))$ 
+for some invertible $T: \overline{V} \to \overline{V}$ and all $v \in V$.
+Then $T (v_1 + V \frakr), \dotsc, T (v_m + V \frakr)$ is a basis of $\overline{V}$; and is orthogonal with respect to $\overline{h_2}$.
+Let $\Delta$ represent the discriminant function.
 Using the fact that the determinant is invariant under choice of basis:
 \begin{align*}
-d(\overline{h_1}) &= \prod_{i=1}^m \overline{h}_1(v_i + V \frakr, v_i + V \frakr)\\
-&= \prod_{i=1}^m \overline{h_2}(Tv_i + V \frakr, Tv_i + V \frakr)\\ &
-= d(\overline{h2})
+\Delta(\overline{h_1}) &= \prod_{i=1}^m \overline{h}_1(v_i + V \frakr, v_i + V \frakr)\\
+&= \prod_{i=1}^m \overline{h_2}(T(v_i + V \frakr), T(v_i + V \frakr))\\ &
+= \Delta(\overline{h2})
 \end{align*}
 
 (c) implies (a): Assume that the discriminants of $\overline{h_1}$ and $\overline{h_2}$ are the same.
-Let $v_1, \dotsc, v_m$ and $w_1, \dotsc, w_m$ be orthogonal bases satisfying \cref{theorem3.5} for $h_1$ and $h_2$ respectively.
+Let $v_1, \dotsc, v_m$ and $w_1, \dotsc, w_m$ be orthogonal bases satisfying \Cref{theorem3.5} for $h_1$ and $h_2$ respectively.
 Then $h_1(v_i, v_i) = h_2(w_i, w_i)$ for all $i$ (because the discriminants are equal, it is ensured that $h_1(v_m,v_m) = h_2(w_m, w_m)$).
 Let $T: V \to V$ be defined by $v_i \mapsto w_i$.
 Then for $x, y \in V$:
 \begin{align*}
 h_1(x, y) &= \sum_{i=1}^m h_1(v_i x_i, v_i y_i) \\
-&= \sum_{i=1}^m x_i^* y_i h_i(v_i, v_i) \\
+&= \sum_{i=1}^m x_i^* y_i h_1(v_i, v_i) \\
 &= \sum_{i=1}^m x_i^*y_i h_2(Tv_i, Tv_i)\\
 &= \sum_{i=1}^m h_2(Tv_i x_i, T v_i y_i)\\
 &= h_2(Tx, Ty)
@@ -294,21 +314,23 @@ and $h_1$ and $h_2$ are equivalent.
 \begin{example}
 Let $h_1 = h$ as defined in previous examples (where $h(v_i, v_i) = 1$ for basis $v_1, \dotsc, v_m$) and define $h_2$ similarly for some basis $u_1, \dotsc, u_m$.
 Let $T: V \to V$ be defined by $u_i \mapsto v_i$.
-Then $h_1$ and $h_2$ are equivalent, with $h_2(Tu_i, Tu_i) = h_2(v_i, v_i) = 1 = h_1(v_i, v_i)$ for all $i$.
-Similarly, the reductions of $h_1$ and $h_2$ modulo $\frakr$ are equivalent, because each has a gram matrix of the identity matrix with respect to the basis they are defined by.
-This also implies that their discriminants are the same.
-In fact, in our example, because $A$ is commutative, we can see that $h_1$ and $h_2$ have the same discriminant by taking the determinant of the Gram matrix with respect to $v_1, \dotsc, v_m$ and $u_1, \dotsc, u_m$.
+Then $h_1$ and $h_2$ are equivalent, with $h_2(u_i, u_i) = 1 = h_1(v_i, v_i) = h_1(Tu_i, Tu_i)$ for all $i$.
+Similarly, the reductions of $h_1$ and $h_2$ modulo $\frakr$ are equivalent, because each has a Gram matrix of the identity matrix with respect to the basis by which they are defined.
+This also implies that the discriminants of $\overline{h_1}$ and $\overline{h_2}$ are equal.
+In fact, in our example, because $A$ is commutative, the notion of a determinant is well defined for $h_1$ and $h_2$.
+Thus we can see that $h_1$ and $h_2$ have the same discriminant (1 in this example) by taking the determinant of the Gram matrix with for $h_1$ with respect to the basis $v_1, \dotsc, v_m$ 
+and for $h_2$ with respect to the basis $u_1, \dotsc, u_m$.
 \end{example}
 
 Given $r_1, \dotsc, r_m \in \Rstar$ we say that $h$ is of type $\{r_1, \dotsc, r_m \}$ if there is a basis $B$ of $V$ relative to which $h$ has matrix $\text{diag} \{r_1, \dotsc, r_m \}$.
 Note that because these matrices contain only elements of $\Rstar$, which is commutative, the notion of a determinant is well defined.
 
 \begin{lemma}\label{extralemma1}
-$h$ is of type $\{r_1, \dotsc, r_m \}$ and $\{s_1, \dotsc, s_m \}$ if and only if \newline $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
+The Hermitian form $h$ is of type $\{r_1, \dotsc, r_m \}$ and $\{s_1, \dotsc, s_m \}$ if and only if \newline $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
 \end{lemma}
 
 \begin{proof}
-Assume that $h$ is of type $\{r_1, \dotsc, r_m\}$ and of type $\{s_1, \dotsc s_m \}$. Because the determinant is invariant under the choice of basis, $r_1 \dotsb r_m = s_1 \dotsb s_m$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} = 1 \in Q(A*)$.
+Assume that $h$ is of type $\{r_1, \dotsc, r_m\}$ and of type $\{s_1, \dotsc s_m \}$. Because the determinant is invariant under the choice of basis, $r_1 \dotsb r_m = s_1 \dotsb s_m$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} = 1 \in Q(\Astar)$.
 
 Now assume that $h$ is of type $\{r_1, \dotsc, r_m \}$ with respect to basis $R$ and $(r_1 \dotsb r_m)(s_1 \dotsb s_m)^{-1} \in Q(\Astar)$.
 It's clear that if $m = 1$ that this implies that $h$ is of type $\{s_1 \}$.
@@ -327,7 +349,7 @@ and by assumption,
 \]
 This result shows that $k > 1$.
 Now let $V_1 = \text{span}\{v_i: i \le m - k\}$ and $V_2 = \text{span}\{v_i: i > m - k\}$.
-Because $k \ge 2$, by \cref{prop3.4} there exists an orthogonal basis $\{w_1, \dotsc, w_k \}$ with $h(w_1, w_1) = s_{m - k + 1}$.
+Because $k \ge 2$, by \Cref{prop3.4} there exists an orthogonal basis $\{w_1, \dotsc, w_k \}$ with $h(w_1, w_1) = s_{m - k + 1}$.
 But then $V' = \{v_1, v_2, \dotsc, v_{m-k}, w_1, \dotsc, w_k \}$ is a basis for $V$ with $k_{V'} < k$, contradicting the assumption that $k$ was minimized.
 Thus $d_i = 1 \pmod{Q(\Astar)}$ for all $i$, and for some basis $V$, $h$ is of type $\{s_1, s_2, \dotsc, s_m\}$.
 \end{proof}
@@ -338,27 +360,28 @@ When $m$ is odd then $h$ is of type $\{1, -1, \dotsc, 1, -1, -1 \}$ (kind I) or 
 \end{lemma}
 
 \begin{proof}
-By \cref{theorem3.5}, we know that $h$ is of type $\{1, 1, \dotsc, 1\}$ or $\{1, 1, \dotsc, \varep \}$.
+By \Cref{theorem3.5}, we know that $h$ is of type $\{1, 1, \dotsc, 1\}$ or $\{1, 1, \dotsc, \varep \}$.
 If $-1 \in Q(\Astar)$, then the result is immediate.
 Assume that $Q$ is not surjective and that $-1 \not\in Q(\Astar)$.
 Let $r = 1$ if $h$ is of type $\{1, 1, \dotsc, 1\}$ and $r = \varep$ if $h$ is of type $\{1, 1, \dotsc, \varep\}$.
 Let $k = \frac{m}{2}$ if $m$ is even, and $k = \frac{m+1}{2}$ if $m$ is odd.
-By the previous result, if $r (-1)^k \delta ^{-1} \in Q(\Astar)$, for some $\delta \in \Rstar$, then $h$ is of type $\{1, -1, \dotsc, 1, -\delta\}$ ($m$ even) or $\{1, -1, \dotsc, 1, -1, -\delta \}$ ($m$ odd), where $\delta \in \{1, \varep\}$.
-Note that because $-1 \not\in Q(\Astar) = \Rstarsq$ and $\varep \not \in Q(\Astar)$, because $[\Rstar : \Rstarsq] = 2$, $-\varep \in Q(\Astar)$.
+Recall that $\varep$ is a fixed element of $\Rstar \backslash \Rstarsq$, and let $\delta \in \{1, \varep \}$.
+By \Cref{extralemma1}, if $r (-1)^k \delta ^{-1} \in Q(\Astar)$, then $h$ is of type $\{1, -1, \dotsc, 1, -\delta\}$ ($m$ even) or $\{1, -1, \dotsc, 1, -1, -\delta \}$ ($m$ odd).
+Note that because $-1 \not\in Q(\Astar) = \Rstarsq$ and $\varep \not \in Q(\Astar)$, then $-\varep \in Q(\Astar)$ (because $[\Rstar : \Rstarsq] = 2$), and $-\varep^{-1} \in Q(\Astar)$ as well.
 Consider 4 cases:
 \begin{description}
-\item[Case 1: $r = 1$ and $k$ even] Let $\delta = 1$. Then $r (-1)^k \delta = 1 \in Q(\Astar)$ and $h$ is of type $\{1, -1, \dotsc, -1 \}$.
-\item[Case 2: $r = 1$ and $k$ odd] Let $\delta = \varep$. Then $r (-1)^k \delta = -\varep \in Q(A)$ and $h$ is of type $\{1, -1, \dotsc, -\varep \}$.
-\item[Case 3: $r = \varep$ and $k$ even] Let $\delta = \varep$. Result follows similarly.
-\item[Case 4: $r = \varep$ and $k$ odd] Let $\delta = 1$. Result follows similarly.
+\item[Case 1: $r = 1$ and $k$ even.] Let $\delta = 1$. Then $r (-1)^k \delta^{-1} = 1 \in Q(\Astar)$ and $h$ is of type $\{1, -1, \dotsc,1, -1 \}$.
+\item[Case 2: $r = 1$ and $k$ odd.] Let $\delta = \varep$. Then $r (-1)^k \delta^{-1} = -\varep^{-1} \in Q(A)$ and $h$ is of type $\{1, -1, \dotsc, -1, -\varep \}$.
+\item[Case 3: $r = \varep$ and $k$ even.] Let $\delta = \varep$. Result follows similarly to case 2,
+and $h$ is of type $\{1, -1, \dotsc, 1, -\varep \}$
+\item[Case 4: $r = \varep$ and $k$ odd.] Let $\delta = 1$. Result follows similarly to case 1,
+and $h$ is of type $\{1, -1, \dotsc, -1, -1\}$.
 \end{description}
 \end{proof}
 Additionally, it is clear from these prior results that $h$ is of kind I and kind II if and only if $Q(\Astar) = \Rstar$.
+The following result classifies the range of $h$ based on the dimension of $m$ and the type of $h$.
 
-% Work on this statement
-Even when $Q$ is not surjective, if $m$ is odd there is only one unitary group of rank $m$, regardless of $h$, since $h$ and $\varep h$ are non-equivalent and have the same unitary group.
-
-\begin{lemma}\label{lemma3.7}
+\begin{theorem}\label{theorem3.7}
 Let $\Lambda$ be the set of all values $h(u,u)$ with $u \in V$ primitive.
 Assume that the involution $*$ induces on $A/\frakr$ is the identity.
 \begin{description}
@@ -366,7 +389,7 @@ Assume that the involution $*$ induces on $A/\frakr$ is the identity.
 \item[(b)] Suppose $m=2$. If $h$ is of type $\{1, -1\}$, then $\Lambda = R$ and if $h$ is of type $\{1, - \varep\}$ then $\Lambda = \Rstar$.
 \item[(c)] If $m > 2$ then $\Lambda = R$.
 \end{description}
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 (a) Assume $m=1$.
@@ -400,12 +423,12 @@ Because $h$ is of type $\{-1, \varep \}$ as well as $\{1, -\varep\}$ there are p
 Thus $\Lambda = \Rstar$.
 
 (c) Assume that $u_1, u_2, \dotsc u_m$ is an orthogonal basis of $V$ with $h(u_i, u_i) \in \Rstar$.
-Then $-h(u_3, u_3) \in \Rstar$ an by \cref{prop3.4}, there exists a primitive vector $v \in u_1 A \oplus u_2 A$ with $h(v,v) = -h(v_3, v_3)$.
+Then $-h(u_3, u_3) \in \Rstar$ and by \Cref{prop3.4}, there exists a primitive vector $v \in u_1 A \oplus u_2 A$ with $h(v,v) = -h(v_3, v_3)$.
 Then $u = v + u_3$ is primitive with $h(u,u) = 0$, and applying lemma 3.1 shows that $\Lambda = R$.
 \end{proof}
 
 \begin{corollary}\label{cor1}
-When $m = 1$, $h$ cannot be isotropic. When $m = 2$, $h$ is isotropic if it is of type $\{1, -1\}$. When $m \ge 3$, $h$ must be isotropic.
+When $m = 1$, $h$ cannot be isotropic. When $m = 2$, $h$ is isotropic if and only if it is of type $\{1, -1\}$. When $m \ge 3$, $h$ must be isotropic.
 \end{corollary}
 \begin{proof}
 Follows directly from preceding result.
@@ -419,15 +442,15 @@ Then $h$ is of type $\{1\}$ with respect to the basis $v_1, \dotsc, v_m$.
 \item[(a)] If $m = 1$, then $v_1 a$ is primitive for all $a \not\in \frakr$.
 Then $h(v_1 a, v_1 a) = a^* a \in Q(\Astar)$.
 Then $\Lambda = Q(\Astar) = {\Rstar} ^2$
-\item[(b)] If $m = 2$, then by \cref{extralemma2}, $h$ is of type $\{1, -\varep\}$.
+\item[(b)] If $m = 2$, then by \Cref{extralemma2}, $h$ is of type $\{1, -\varep\}$.
 Then $h$ is also of type $\{-1, \varep \}$ and there exist primitive vectors $u$ and $v$ such that $h(u,u) = 1$ and $h(v, v) = \varep$.
 Then for $x \in {\Rstar}^2, x = Q(a)$ for some $a \in \Astar$ and $x = aa^* = h(va^*, va^*)$.
 Thus $\Rstarsq \subset \Lambda$.
 Similarly, if $y \not\in \Rstarsq$, then $y = \varep b^2$ for some $b \in \Rstar$ (note this is because $[\Rstar: \Rstarsq] = 2$).
 Then $y = h(vb, vb)$ and $\Rstar \backslash \Rstarsq \subset \Lambda$, implying that $\Lambda = \Rstar$.
-\item[(c)] By assumption, $h(v_3, v_3) = 1$. Applying \cref{prop3.4}, there exists a primitive $u \in v_1 A \oplus v_2 A$ such that $h(u,u) = -1$.
-Then $u + v_3$ is primitive and $h(u + v_3, u + v_3) = 0$, allowing \cref{lemma3.1} to be applied and shows that $\Lambda = R$.
+\item[(c)] By assumption, $h(v_3, v_3) = 1$. Applying \Cref{prop3.4}, there exists a primitive $u \in v_1 A \oplus v_2 A$ such that $h(u,u) = -1$.
+Then $u + v_3$ is primitive and $h(u + v_3, u + v_3) = 0$, allowing \Cref{lemma3.1} to be applied and shows that $\Lambda = R$.
 \end{description}
-This shows, that by \cref{cor1}, $h$ from our example is not isotropic if $m = 1$ or $m = 2$.
+This shows, that by \Cref{cor1}, $h$ from our example is not isotropic if $m = 1$ or $m = 2$.
 \end{example}
 

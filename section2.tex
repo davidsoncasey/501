@@ -16,9 +16,12 @@ Throughout the paper, the following objects will be fixed:
 
 \item Let $\Astar$ denote the set of all units of $A$.
 
-\item Let $*$ be an involution of $A$. Assume that elements fixed by $*$ are in the center of $A$, forming a ring $R = \{a \in A: a^* = a\}$. 
+\item Let $*$ be an involution of $A$. 
 
-\item Note that $R$ is local as well, with maximal ideal $\frakm = R \cap \mathfrak{r}$. 
+\item Let $R = \{a \in A: a^* = a\}$. It will be assumed throughout the paper that $R$ is a subset of the center of $A$.
+
+\item Let $\frakm = R \cap \mathfrak{r}$.
+Then $R$ is local as well, with maximal ideal $\frakm$.
 This is because any element of $R$ that is not in $\frakm$ is invertible by definition, and cannot be contained in any proper ideal.
 
 \item Let $\Rstar$ denote the set of all units of $R$.
@@ -30,7 +33,7 @@ This is because any element of $R$ that is not in $\frakm$ is invertible by defi
 Returning to the objects defined in the introduction, we can see an example of each of these objects using the \padic integers.
 Let $\mathbb{Q}_p, \mathcal{O}, \mathcal{R}$ and $\omega$ be the same as defined in the previous section.
 For simplicity, assume that $p > 2$ and $p \equiv 3 \mod 4$.
-Then $\omega = \sqrt{p}$.
+Then $\omega = \sqrt{p}$ and $\mathcal{R} = \Z[\sqrt{p}]$.
 For $a + b \sqrt{p} \in \mathcal{R}$, let $\overline{a + b\sqrt{p}}$ denote the coset $a + b\sqrt{p} + (p)^{2\ell}$ in $A = \mathcal{R} / (\sqrt{p})^{2\ell}$.
 Then
 \begin{itemize}
@@ -40,7 +43,7 @@ Then
 
 \item $*: A \to A$ is defined by $\overline{a + b\sqrt{p}} \mapsto \overline{a - b\sqrt{p}}$.
 
-\item $R = \{\overline{a + b\sqrt{p}} : b = 0\}$ with maximal ideal $\frakm = (p)$.
+\item $R = \{\overline{a + b\sqrt{p}} : b = 0\}$ with maximal ideal $(\sqrt{p})^2= (p)$.
 
 \item $\Rstar = \{\overline{a + b\sqrt{p}}: b = 0 \text{ and } a \not\in (p)\}$.
 
@@ -65,14 +68,13 @@ Now we can define a homomorphism of right $A$-modules $\gamma_h: V \to V^*$ asso
 Additionally, for the remainder of the paper:
 \begin{itemize}
 \item Assume that $h$ is non-degenerate; By definition, $\gamma_h$ is an isomorphism.
-\item Let $U$ be the subgroup of $GL(V)$ preserving $h$. That is, for $\varphi \in U, u,v \in V$, $h(\varphi(u), \varphi(v)) = h(u,v)$.
 \item Assume the existence of an element $d \in A$ such that $d + d^* = 1$.
 \item Assume that $V$ is a free $A$-module of rank $m \ge 1$.
 \end{itemize}
 For the remainder of this section, let $\{v_1, v_2, \dotsc, v_m\}$ be a basis of $V$.
 
 \begin{example}\label{ex2.2}
-Continuing with the $A$ as defined in \cref{ex2.1} and assuming that $V$ is a right $A$-module,
+Continuing with the $A$ as defined in \Cref{ex2.1} and assuming that $V$ is a right $A$-module,
 let $a = v_1 a_1 + \dotsb v_m a_m$ and $b = v_1 b_1 + \dotsb + v_m b_m$ with $a_i, b_i \in A$ for $1 \le i \le m$.
 Define $h: V \times V \to A$ by $h(a, b) = a_1^* b_1 + \dotsc + a_m^* b_m$.
 This is a Hermitian form, and can be verified to be non-degenerate.
@@ -90,6 +92,7 @@ Then using the linearity of $h$:
 h(u,v) + h(u,v)^* = h(u+v, u+v) - h(u,u) - h(v,v) \in \mathfrak{m}
 \]
 for all $u,v \in V$.
+Recall that $d \in A$ is assumed to be an element such that $d + d^* = 1$.
 Let $\alpha \in V^*$ be the linear functional such that $\alpha(v_1) = d$ and $\alpha(v_i) = 0$ for all $i > 1$.
 Because $h$ is assumed to be non-degenerate, there exists $u \in V$ such that $h(u,-) = \alpha$.
 Then $d = \alpha(v_1) = h(u,v_1)$ and $1 = d + d^* = h(u,v_1) + h(u,v_1)^* \not\in \mathfrak{m}$, contradicting the original hypothesis.
@@ -99,19 +102,19 @@ Then $d = \alpha(v_1) = h(u,v_1)$ and $1 = d + d^* = h(u,v_1) + h(u,v_1)^* \not\
 Note that in the $\mathbb{Q}_p$, $2^{-1}$ is a series satisfying $2^{-1} + 2^{-1} = 1$.
 Because $2^{-1}$ is a \padic integer, $2^{-1} \in R$ and is fixed under the involution.
 Thus $d = 2^{-1}$.
-Using $h$ as defined in \cref{ex2.2}, pick $u = v_1 2^{-1}$.
+Using $h$ as defined in \Cref{ex2.2}, pick $u = v_1 2^{-1}$.
 Then $h(u, v_1) = 2^{-1}$ and $h(u, v_i) = 0$ for $i \ne 1$, as desired.
 \end{example}
 
 % Lemma 2.2
 \begin{lemma}\label{lemma2.2}
-$V$ has an orthogonal basis $u_1, u_2, \dotsc u_m$.
+$V$ has an orthogonal basis (with respect to $h$) $u_1, u_2, \dotsc u_m$.
 Any such basis satisfies $h(u_i, u_i) \in \Rstar$.
 \end{lemma}
 \begin{proof}
 Prove with induction on $m$.
 Assume that $m = 1$.
-By \cref{lemma2.1}, there exists $u \in V$ such that $h(u,u) \in \Rstar$.
+By \Cref{lemma2.1}, there exists $u \in V$ such that $h(u,u) \in \Rstar$.
 Then $u = v_1a_1$ for some $a_1 \in \Astar$, and $h(u,u) = h(v_1a_1, v_1a_1) = a_1^*h(v_1,v_1)a_1 \in \Rstar$ implying that $h(v_1, v_1) \in \Rstar$.
 Now assume that $m > 1$ and that the hypothesis holds for $m - 1$.
 Once again, there exists $u \in V$ such that $h(u,u) \in \Rstar$.
@@ -145,7 +148,7 @@ Then $u_1, \dotsc , u_s \in V$ can be extended to an orthogonal basis of $V$ wit
 \end{lemma}
 \begin{proof}
 (a) Because $\{v_1, \dotsc, v_m \}$ is a basis of $v$, $u_1 = v_1 a_1 + \dotsb + v_m a_m$ for some $a_i \in A$.
-Since $h(u_1, u_1) \in \Rstar$ (by hypothesis), one of the scalars must be a unit (see proof of \cref{lemma2.2}).
+Since $h(u_1, u_1) \in \Rstar$ (by hypothesis), one of the scalars must be a unit (see proof of \Cref{lemma2.2}).
 Without loss of generality, assume $a_1 \in \Astar$.
 Thus $u_1, v_2, \dotsc, v_m$ is a basis of $V$.
 Suppose $1 \le t \le s$ and the list $u_1, \dotsc, u_t, v_{t+1}, \dotsc, v_m$ is a basis of $V$.
@@ -168,9 +171,14 @@ For $s < i \le m$, let
 z_i = u_i - ([u_1h(u_1, u_i)/h(u_1, u_1)] + \dotsb + u_s h(u_s, u_i) / h(u_s, u_s)].
 \]
 Then $u_1, \dotsc, u_s, z_1, \dotsc, z_{m-s}$ is a basis of $V$ satisfying $h(u_i, z_j) = 0$.
-If follows that the restriction of $h$ to $M = \text{span} \{z_1, \dotsc, z_{m-s}\}$ is non-degenerate and by \cref{lemma2.2} that $M$ has an orthogonal basis with $h(z_i, z_i) \in \Rstar$ for any $i \le m - s$.
+If follows that the restriction of $h$ to $M = \text{span} \{z_1, \dotsc, z_{m-s}\}$ 
+is non-degenerate and by \Cref{lemma2.2} that $M$ has an orthogonal basis $\{y_1, \dotsc, y_{m-s}\}$.
+with $h(z_i, z_i) \in \Rstar$ for any $i \le m - s$.
+Because $M = \text{span} \{z_1 \dotsc z_m\}$ and $h(u_i, z_j) = 0$ for all $i, j$, it follows that $h(u_i, y_k) = 0$ for all $k$.
+Thus $\{u_1, \dotsc u_s, y_1, \dotsc y_{m - s} \}$ is an orthogonal basis for $V$ satisfying $h(u_i, u_i) \in \Rstar$ for $i \le s$ and
+$h(y_i, y_i) \in \Rstar$ for $i \le m -s$.
 
-(b) Follows from (a) and \cref{lemma2.2}
+(b) Follows from (a) and \Cref{lemma2.2}
 \end{proof}
 
 Given a set $U = \{u_1, \dotsc, u_s\} \subset V$, for $s \le m$, the \textbf{Gram matrix} $H$ of the set $U$ with respect to $h$
